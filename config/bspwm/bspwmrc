@@ -1,0 +1,17 @@
+#! /bin/sh
+
+sxhkd &
+
+bspc monitor DP-1 -d I II III IV V
+bspc monitor DVI-I-2 -d VI VII VIII IX X
+
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config split_ratio          0.5
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config click_to_focus true
+
+# set random backgrounds
+feh --randomize --bg-fill ~/pictures/backgrounds/
