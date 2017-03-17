@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Embark Options</title>
+  <link rel="stylesheet" type="text/css" href="css/chrome-bootstrap.css" />
+  <script src="../vendor/zepto/zepto.min.js" type="text/javascript"></script>
+</head>
+<body class="chrome-bootstrap">
+  <div class="frame">
+    <div class="navigation">
+      <h1><a href="#">Embark</a></h1>
+      <ul class="menu">
+        <li class="selected">
+          <a href="#settings">Settings</a>
+        </li>
+        <li>
+          <a href="#changelog">Changelog</a>
+        </li>
+        <li>
+          <a href="#credits">Credits</a>
+        </li>
+      </ul>
+    </div>
+    <div class="mainview view">
+      <div id="settings" class="selected">
+        <header>
+          <h1>Settings</h1>
+        </header>
+        <form way-data="settings" id="settings-form">
+            <div class="content">
+            		<h2>Background</h2>
+            		<div style="margin: 10px 0;">
+            		    <label>Show a new random image:</label>
+            		    <select name="bg_period">
+            		      <option value="tab">Every time a new tab is opened</option>
+            		      <option value="15min">Every 15 minutes</option>
+            		      <option value="30min">Every 30 minutes</option>
+            		      <option value="hourly">Hourly</option>
+            		      <option value="daily">Daily</option>
+            		      <option value="weekly">Weekly</option>
+            		    </select>
+            		</div>
+                <h2>Time</h2>
+                <div class="checkbox">
+                  <label>
+                    <input type="hidden" name="time_display" value="0">
+                    <input type="checkbox" name="time_display" value="1">
+                    <span>Show the current time</span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="hidden" name="time_12hour" value="0">
+                    <input type="checkbox" name="time_12hour" value="1">
+                    <span>Use 12 hour time</span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="hidden" name="time_display_meridiem" value="0">
+                    <input type="checkbox" name="time_display_meridiem" value="1">
+                    <span>Show am/pm (if using 12 hour time)</span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="hidden" name="time_animate_seperators" value="0">
+                    <input type="checkbox" name="time_animate_seperators" value="1">
+                    <span>Animate the time seperator</span>
+                  </label>
+                </div>
+                <div style="margin-top: 15px;">
+                  <label>Digit transparency</label><br>
+                  <div>Transparent <input style="transform: translateY(4px);" name="time_digit_transparency" type="range" min="0" max="100" step="1" /> Opaque</div>
+                </div>
+                <div style="margin-top: 15px;">
+                  <label>Border transparency</label><br>
+                  <div>Transparent <input style="transform: translateY(4px);" name="time_border_transparency" type="range" min="0" max="100" step="1" /> Opaque</div>
+                </div>
+                <h2>Date</h2>
+                <div class="checkbox">
+                  <label>
+                    <input type="hidden" name="date_display" value="0">
+                    <input type="checkbox" name="date_display" value="1">
+                    <span>Show the current date</span>
+                  </label>
+                </div>
+                <div>
+                    <label>Format</label>
+                    <input type="text" name="date_format" placeholder="dddd LL" value="dddd LL"> A full list of formats can be found <a target="_blank" href="http://momentjs.com/docs/#/displaying/format/">here</a>
+                </div>
+                <div style="margin: 10px 0;">
+                    <label>Position</label>
+                    <select name="date_position">
+                      <option value="viewport-top">Top of viewport</option>
+                      <option value="viewport-bottom">Bottom of viewport</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+      </div>
+      <div id="changelog">
+        <header>
+          <h1>Changelog</h1>
+        </header>
+        <div class="content">
+        <h3>0.6.0 - 26th April 2015</h3>
+        <ul>
+        	<li>- Added an option to select how often a new random photo should be shown.</li>
+        	<li>- Added new photos.</li>
+        </ul>
+        <h3>0.5.0 - 31st December 2014</h3>
+        <ul>
+        	<li>- Added 12 hour time option.</li>
+        	<li>- Option to toggle am/pm when using 12 hour time.</li>
+        	<li>- Added new photos.</li>
+        </ul>
+        </div>
+      </div>
+      <div id="credits">
+        <header>
+          <h1>Credits</h1>
+        </header>
+        <div class="content">
+          <p>Built by <a href="http://moss.io">James Moss</a></p>
+          <p>Photography from <a href="http://unsplash.com">Unsplash</a></p>
+          <p>Got any questions? Hit me up on twitter <a href="https://twitter.com/jimbomoss">@jimbomoss</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../vendor/error-logger.js" data-token="f755a94a462e4f7589754a475b313b9a"></script>
+  <script src="js/settings.js" type="text/javascript"></script>
+  <script src="js/options.js" type="text/javascript"></script>
+</body>
+</html>

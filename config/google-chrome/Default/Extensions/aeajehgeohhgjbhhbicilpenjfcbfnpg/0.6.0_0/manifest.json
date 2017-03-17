@@ -1,0 +1,23 @@
+{
+   "author": "James Moss \u003Cjames@moss.io>",
+   "chrome_url_overrides": {
+      "newtab": "dist/tab.html"
+   },
+   "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
+   "description": "A minimalistic new tab page.",
+   "icons": {
+      "128": "icons/logo-128.png",
+      "16": "icons/logo-16.png",
+      "48": "icons/logo-48.png"
+   },
+   "incognito": "split",
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhBFbfNTAwvdmsOtSbU18sNIb32qkzO0KKVSpwJ8vpNkEVN5HnNLOazUSH2/5KkVhYw4Gsl8+bedKD3zDiW3P64AnAEkJjqM4TwoysvAwIr0v9jJRagmPvcQZu3mdknvxXr4v2JphQNAXX/HAcfLjmnz3IWRr7yjV2nr0c7p4oI0bqcPtJJUtiX7K2vZY9AncaDLw2Krf6dcEzQwZkaGxZkR0PoqJVz0THPxy4yTG2aHe5/jwdZgO9KC67FMsVw1hRSeZ75YKtdP4IeCKNvroocYnzhpcg5CAHF615Dc/vnkKWq9WrfCmUkaFBJvd2RmNqfBHVvL9Q1UP5dO5YAXYQwIDAQAB",
+   "manifest_version": 2,
+   "name": "Embark - New Tab Page",
+   "offline_enabled": true,
+   "options_page": "dist/options.html",
+   "permissions": [ "storage" ],
+   "short_name": "Embark",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.6.0"
+}
