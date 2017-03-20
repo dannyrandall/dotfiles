@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="zshrc oh-my-zsh config xinitrc Xdefaults Xauthroity"    # list of files/folders to symlink in homedir
+files="zshrc oh-my-zsh config xinitrc Xdefaults Xauthority"    # list of files/folders to symlink in homedir
 
 ##########
 
