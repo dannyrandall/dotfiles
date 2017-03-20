@@ -1,4 +1,6 @@
-urxvt*foreground: white
+# font-awesome font
+URxvt.font: xft:Hack:size=11
+URxvt.letterspace: -2
 
 # real transparency
 #urxvt*depth: 32
@@ -8,20 +10,24 @@ urxvt*foreground: white
 urxvt*transparent: true
 urxvt*shading: 30
 
-# colors 
-*color0:  #2E3436
-*color1:  #a40000
-*color2:  #4E9A06
-*color3:  #C4A000
-*color4:  #3465A4
-*color5:  #75507B
-*color6:  #ce5c00
-*color7:  #babdb9
-*color8:  #555753
-*color9:  #EF2929
-*color10: #8AE234
-*color11: #FCE94F
-*color12: #729FCF
-*color13: #AD7FA8
-*color14: #fcaf3e
-*color15: #EEEEEC
+# Snazzy - Converted from https://github.com/sindresorhus/iterm2-snazzy
+#          using https://github.com/richo/itermcolors2xdefaults
+URxvt*background: #1e1f28
+URxvt*foreground: #ebece6
+URxvt*cursorColor: #e4e4e4
+URxvt*color0: #000
+URxvt*color1: #fb4245
+URxvt*color2: #50fa7b
+URxvt*color3: #f0fa8b
+URxvt*color4: #49b9fe
+URxvt*color5: #fb4cb3
+URxvt*color6: #8b9fd
+URxvt*color7: #ededec
+URxvt*color8: #555555
+URxvt*color9: #fb4245
+URxvt*color10: #50fa7b
+URxvt*color11: #f0fa8b
+URxvt*color12: #49b9fe
+URxvt*color13: #fb4cb3
+URxvt*color14: #8be9fd
+URxvt*color15: #ededec
