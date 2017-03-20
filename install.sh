@@ -8,7 +8,8 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/old_dotfiles             # old dotfiles backup directory
-files="zshrc config/bspwm config/sxhkd xinitrc Xdefaults"    # list of files/folders to symlink in homedir
+files="zshrc xinitrc Xdefaults vimrc"    # list of files/folders to symlink in homedir
+configFiles="bspwm sxhkd"
 
 ##########
 
@@ -28,4 +29,13 @@ for file in $files; do
     mv ~/.$file ~/old_dotfiles/
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
+done
+
+# do the same for the config folders
+mkdir $olddir/config
+for folder in $configFiles; do
+    echo "Moving existing config folders from ~/.config/$folder to ~$olddir/config/"
+    mv ~/.config/$folder ~/old_dotfiles/config/
+    echo "Creating symlink to $folder in home directory."
+    ln -s $dir/config/$folder ~/.config/$folder
 done
