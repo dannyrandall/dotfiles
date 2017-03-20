@@ -1,22 +1,20 @@
-2017/03/17-21:26:25.645 1262 Reusing MANIFEST /home/dannyrandall/.config/google-chrome/Default/Local Extension Settings/gighmmpiobklfepjocnamgkkbiglidom/MANIFEST-000001
-2017/03/17-21:26:25.645 1262 Recovering log #49
-2017/03/17-21:26:25.685 1262 Level-0 table #52: started
-2017/03/17-21:26:25.802 1262 Level-0 table #52: 2390814 bytes OK
-2017/03/17-21:26:25.879 1262 Delete type=0 #49
-2017/03/17-21:26:25.881 1392 Compacting 4@0 + 2@1 files
-2017/03/17-21:26:26.061 1392 Generated table #54@0: 1 keys, 2390814 bytes
-2017/03/17-21:26:26.095 1392 Generated table #55@0: 4 keys, 392 bytes
-2017/03/17-21:26:26.095 1392 Compacted 4@0 + 2@1 files => 2391206 bytes
-2017/03/17-21:26:26.120 1392 compacted to: files[ 0 2 1 0 0 0 0 ]
-2017/03/17-21:27:28.008 1392 Level-0 table #57: started
-2017/03/17-21:27:28.111 1392 Level-0 table #57: 2391095 bytes OK
-2017/03/17-21:27:28.145 1392 Delete type=2 #47
-2017/03/17-21:27:28.145 1392 Delete type=2 #42
-2017/03/17-21:27:28.145 1392 Delete type=2 #52
-2017/03/17-21:27:28.146 1392 Delete type=2 #43
-2017/03/17-21:27:28.146 1392 Delete type=0 #53
-2017/03/17-21:27:28.147 1392 Delete type=2 #45
-2017/03/17-21:27:28.147 1392 Delete type=2 #50
-2017/03/17-21:30:55.610 1392 Level-0 table #59: started
-2017/03/17-21:30:55.723 1392 Level-0 table #59: 2390816 bytes OK
-2017/03/17-21:30:55.803 1392 Delete type=0 #56
+2017/03/20-18:10:14.202 29185 Reusing MANIFEST /home/dannyrandall/.config/google-chrome/Default/Local Extension Settings/gighmmpiobklfepjocnamgkkbiglidom/MANIFEST-000001
+2017/03/20-18:10:14.202 29185 Recovering log #58
+2017/03/20-18:10:14.202 29185 Reusing old log /home/dannyrandall/.config/google-chrome/Default/Local Extension Settings/gighmmpiobklfepjocnamgkkbiglidom/000058.log 
+2017/03/20-18:11:15.374 29334 Level-0 table #62: started
+2017/03/20-18:11:15.525 29334 Level-0 table #62: 2391679 bytes OK
+2017/03/20-18:11:15.550 29334 Delete type=0 #58
+2017/03/20-18:11:16.812 29334 Level-0 table #64: started
+2017/03/20-18:11:16.927 29334 Level-0 table #64: 2390332 bytes OK
+2017/03/20-18:11:16.950 29334 Delete type=0 #61
+2017/03/20-18:11:16.950 29334 Compacting 4@0 + 2@1 files
+2017/03/20-18:11:17.124 29334 Generated table #65@0: 1 keys, 2390042 bytes
+2017/03/20-18:11:17.166 29334 Generated table #66@0: 4 keys, 393 bytes
+2017/03/20-18:11:17.166 29334 Compacted 4@0 + 2@1 files => 2390435 bytes
+2017/03/20-18:11:17.225 29334 compacted to: files[ 0 2 1 0 0 0 0 ]
+2017/03/20-18:11:17.225 29334 Delete type=2 #57
+2017/03/20-18:11:17.225 29334 Delete type=2 #64
+2017/03/20-18:11:17.226 29334 Delete type=2 #59
+2017/03/20-18:11:17.226 29334 Delete type=2 #55
+2017/03/20-18:11:17.226 29334 Delete type=2 #62
+2017/03/20-18:11:17.227 29334 Delete type=2 #54

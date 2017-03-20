@@ -172,10 +172,10 @@
             "date_added": "13132182306594758",
             "id": "27",
             "meta_info": {
-               "last_visited_desktop": "13134256758695432"
+               "last_visited_desktop": "13134262033336644"
             },
             "name": "",
-            "sync_transaction_version": "16",
+            "sync_transaction_version": "36",
             "type": "url",
             "url": "https://github.com/"
          }, {
@@ -340,20 +340,20 @@
                "date_added": "13131759687964720",
                "id": "38",
                "meta_info": {
-                  "last_visited_desktop": "13134259510122923"
+                  "last_visited_desktop": "13134259600433224"
                },
                "name": "[bspwm + polybar] Trying to get a modern look : unixporn",
-               "sync_transaction_version": "29",
+               "sync_transaction_version": "32",
                "type": "url",
                "url": "https://www.reddit.com/r/unixporn/comments/5tffxu/bspwm_polybar_trying_to_get_a_modern_look/"
             }, {
                "date_added": "13132372463145628",
                "id": "39",
                "meta_info": {
-                  "last_visited_desktop": "13134259508462358"
+                  "last_visited_desktop": "13134259597532775"
                },
                "name": "unsplash",
-               "sync_transaction_version": "28",
+               "sync_transaction_version": "31",
                "type": "url",
                "url": "https://unsplash.com/"
             }, {
@@ -451,7 +451,7 @@
          "name": "Other bookmarks",
          "type": "folder"
       },
-      "sync_transaction_version": "29",
+      "sync_transaction_version": "36",
       "synced": {
          "children": [ {
             "date_added": "13059990463510810",
@@ -499,10 +499,10 @@
             "date_added": "13134250858768361",
             "id": "12",
             "meta_info": {
-               "last_visited_desktop": "13134259503020844"
+               "last_visited_desktop": "13134259592323630"
             },
             "name": "Using Git and Github to Manage Your Dotfiles – the smalley creative blog",
-            "sync_transaction_version": "27",
+            "sync_transaction_version": "30",
             "type": "url",
             "url": "http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/"
          } ],

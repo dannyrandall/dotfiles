@@ -1,6 +1,22 @@
-2017/03/17-21:25:00.053 457 Reusing MANIFEST /home/dannyrandall/.config/google-chrome/Default/Local Extension Settings/gighmmpiobklfepjocnamgkkbiglidom/MANIFEST-000001
-2017/03/17-21:25:00.053 457 Recovering log #46
-2017/03/17-21:25:00.064 457 Reusing old log /home/dannyrandall/.config/google-chrome/Default/Local Extension Settings/gighmmpiobklfepjocnamgkkbiglidom/000046.log 
-2017/03/17-21:26:02.254 965 Level-0 table #50: started
-2017/03/17-21:26:02.361 965 Level-0 table #50: 2391196 bytes OK
-2017/03/17-21:26:02.386 965 Delete type=0 #46
+2017/03/17-21:26:25.645 1262 Reusing MANIFEST /home/dannyrandall/.config/google-chrome/Default/Local Extension Settings/gighmmpiobklfepjocnamgkkbiglidom/MANIFEST-000001
+2017/03/17-21:26:25.645 1262 Recovering log #49
+2017/03/17-21:26:25.685 1262 Level-0 table #52: started
+2017/03/17-21:26:25.802 1262 Level-0 table #52: 2390814 bytes OK
+2017/03/17-21:26:25.879 1262 Delete type=0 #49
+2017/03/17-21:26:25.881 1392 Compacting 4@0 + 2@1 files
+2017/03/17-21:26:26.061 1392 Generated table #54@0: 1 keys, 2390814 bytes
+2017/03/17-21:26:26.095 1392 Generated table #55@0: 4 keys, 392 bytes
+2017/03/17-21:26:26.095 1392 Compacted 4@0 + 2@1 files => 2391206 bytes
+2017/03/17-21:26:26.120 1392 compacted to: files[ 0 2 1 0 0 0 0 ]
+2017/03/17-21:27:28.008 1392 Level-0 table #57: started
+2017/03/17-21:27:28.111 1392 Level-0 table #57: 2391095 bytes OK
+2017/03/17-21:27:28.145 1392 Delete type=2 #47
+2017/03/17-21:27:28.145 1392 Delete type=2 #42
+2017/03/17-21:27:28.145 1392 Delete type=2 #52
+2017/03/17-21:27:28.146 1392 Delete type=2 #43
+2017/03/17-21:27:28.146 1392 Delete type=0 #53
+2017/03/17-21:27:28.147 1392 Delete type=2 #45
+2017/03/17-21:27:28.147 1392 Delete type=2 #50
+2017/03/17-21:30:55.610 1392 Level-0 table #59: started
+2017/03/17-21:30:55.723 1392 Level-0 table #59: 2390816 bytes OK
+2017/03/17-21:30:55.803 1392 Delete type=0 #56
