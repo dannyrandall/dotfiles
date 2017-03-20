@@ -7,8 +7,8 @@
 ########## Variables
 
 dir=~/dotfiles                    # dotfiles directory
-olddir=~/dotfiles_old             # old dotfiles backup directory
-files="zshrc oh-my-zsh config xinitrc Xdefaults Xauthority"    # list of files/folders to symlink in homedir
+olddir=~/old_dotfiles             # old dotfiles backup directory
+files="zshrc config/bspwm config/sxhkd xinitrc Xdefaults"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -24,8 +24,8 @@ echo "...done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in $files; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/.$file ~/dotfiles_old/
+    echo "Moving any existing dotfiles from ~.$file to $olddir"
+    mv ~/.$file ~/old_dotfiles/
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
