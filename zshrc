@@ -97,3 +97,6 @@ alias devup="cd $GOPATH/src/github.com/byuoitav/av-api && docker-compose -f dock
 alias devdown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-dev.yml down"
 alias produp="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-prod.yml pull && docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-prod.yml up -d"
 alias proddown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-prod.yml down"
+
+# load work env. vars
+[ -f .envrc ] && source .envrc
