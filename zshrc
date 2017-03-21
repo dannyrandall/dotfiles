@@ -79,6 +79,10 @@ DEFAULT_USER="dannyrandall"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# go
+export PATH=$GOPATH/bin:$PATH
+export GOPATH=~/documents/work/go
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -87,3 +91,9 @@ DEFAULT_USER="dannyrandall"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# docker alias's
+alias devup="cd $GOPATH/src/github.com/byuoitav/av-api && docker-compose -f docker-compose-dev.yml build && docker-compose -f docker-compose-dev.yml up -d && cd -"
+alias devdown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-dev.yml down"
+alias produp="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-prod.yml pull && docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-prod.yml up -d"
+alias proddown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-prod.yml down"

@@ -1,5 +1,9 @@
 syntax on
 
+" set custom tab width
+set tabstop=4
+set shiftwidth=4
+
 " set color scheme
 colorscheme slate
 
