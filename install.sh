@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################
-# .make.sh
+# install.sh
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
 ############################
 
@@ -39,3 +39,7 @@ for folder in $configFiles; do
     echo "Creating symlink to $folder in home directory."
     ln -s $dir/config/$folder ~/.config/$folder
 done
+
+# download backgrounds from unsplash
+chmod +x background.sh
+./backgrounds.sh
