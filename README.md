@@ -24,10 +24,9 @@ Before setting up dotfiles, install required programs:
   pacman -S powerline
   ```
 * powerlevel9k theme
-    * go to .oh-my-zsh/custom, and then run
-      ```
-      git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-      ```
+  ```
+  git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+  ```
 * feh
   ```
   pacman -S feh
