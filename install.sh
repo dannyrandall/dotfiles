@@ -9,7 +9,7 @@
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/old_dotfiles             # old dotfiles backup directory
 files="zshrc xinitrc Xdefaults vimrc"    # list of files/folders to symlink in homedir
-configFiles="bspwm sxhkd"
+configFiles="bspwm sxhkd"	# folders to be placed in ./config/[here]
 
 ##########
 
