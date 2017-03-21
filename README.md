@@ -1,6 +1,6 @@
 ## Setup
 
-Setup has only been tested on Arch Linux, and as such, all commands are made with that in mind.
+Setup has only been tested on Arch Linux (``backgrounds.sh`` has been tested on Mac OSX Sierra as well) , and as such, all commands are made with that in mind.
 Before setting up dotfiles, install required programs:
 * urxvt
   ```
