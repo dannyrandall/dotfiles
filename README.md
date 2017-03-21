@@ -28,4 +28,10 @@ Before setting up dotfiles, install required programs:
       ```
       git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
       ```
+* feh
+  ```
+  pacman -S feh
+  ```
 * download backgrounds
+	* backgrounds are automatically downloaded by running ``install.sh``
+	* you can also just download backgrounds with ``backgrounds.sh``
