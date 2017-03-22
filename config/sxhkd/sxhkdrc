@@ -8,12 +8,19 @@ super + Return
 
 # program launcher
 super + space
-	rofi -combi-modi window,drun -show combi -modi combi
+	rofi -combi-modi window,drun,run -show combi -modi combi
 
-# make sxhkd reload its configuration files:
+# make sxhkd and bspwm reload their configuration files
+super + shift + r
+	$HOME/.config/bspwm/bspwmrc
+
+# open chrome
+super + c
+	google-chrome-stable
+
+# lock the screen
 super + Escape
-	pkill -USR1 -x sxhkd
-
+	dm-tool switch-to-greeter
 #
 # bspwm hotkeys
 #
