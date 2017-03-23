@@ -2,15 +2,15 @@
 
 Setup has only been tested on Arch Linux (``backgrounds.sh`` has been tested on Mac OSX Sierra as well) , and as such, all commands are made with that in mind.
 Before setting up dotfiles, install required programs:
-* urxvt
+* [urxvt](https://wiki.archlinux.org/index.php/rxvt-unicode)
   ```
   pacman -S rxvt-unicode
   ```
-* bspwm and sxhkd
+* [bspwm](https://github.com/baskerville/bspwm) and [sxhkd](https://github.com/baskerville/sxhkd)
   ```
   pacman -S bspwm sxhkd
   ```
-* zsh
+* [zsh](https://wiki.archlinux.org/index.php/zsh)
   ```
   pacman -S zsh
   ```
@@ -18,15 +18,15 @@ Before setting up dotfiles, install required programs:
   ```
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
   ```
-* powerline fonts
+* [powerline fonts](https://github.com/powerline/fonts)
   ```
   pacman -S powerline
   ```
-* powerlevel9k theme
+* [powerlevel9k theme](https://github.com/bhilburn/powerlevel9k#installation)
   ```
   git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
   ```
-* feh
+* [feh](https://wiki.archlinux.org/index.php/feh)
   ```
   pacman -S feh
   ```
