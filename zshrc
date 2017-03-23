@@ -92,6 +92,8 @@ export GOPATH=~/documents/work/go
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias gin="go run server.go" #spin up go server
+
 # docker alias's
 alias devup="cd $GOPATH/src/github.com/byuoitav/av-api && docker-compose -f docker-compose-dev.yml build && docker-compose -f docker-compose-dev.yml up -d && cd -"
 alias devdown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-dev.yml down"
