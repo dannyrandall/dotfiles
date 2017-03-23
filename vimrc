@@ -6,8 +6,8 @@ Plug 'fatih/vim-go'
 Plug 'scrooloose/syntastic'
 call plug#end()
 
-" plugin options
-" 
+" plugin option sdfjdklasd;lkfdjskald;fsldadfdsadfssdf;asdfjdsa
+"
 " nerdtree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif " if no files opened (ie, $ vim) then open by default
@@ -40,6 +40,7 @@ let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] } " s
 "
 " custom key mappings
 "
+inoremap jj <esc>
 map <C-t> :NERDTreeToggle<CR>
 "
 " end custom key mappings
