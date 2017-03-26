@@ -5,9 +5,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go'
 Plug 'scrooloose/syntastic'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'raimondi/delimitmate'
 call plug#end()
 
-" plugin option sdfjdklasd;lkfdjskald;fsldadfdsadfssdf;asdfjdsa
+" plugin options
 "
 " nerdtree
 autocmd StdinReadPre * let s:std_in=1
