@@ -4,6 +4,7 @@ call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go'
 Plug 'scrooloose/syntastic'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 call plug#end()
 
 " plugin option sdfjdklasd;lkfdjskald;fsldadfdsadfssdf;asdfjdsa
@@ -23,7 +24,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1 " highlighting for go
 let g:go_fmt_command = "goimports" " use goimports for automatic import paths (instead of gofmt)
-let g:go_list_type = "quickfix" " fix location list window not appearing
+" let g:go_list_type = quickfix fix location list window not appearing
 
 " syntastic
 set statusline+=%#warningmsg#
@@ -33,8 +34,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0 " change when to check syntax
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] } " set go checkers
+let g:syntastic_go_checkers = ['govet', 'errcheck', 'go'] " set go checkers
 
 " end plugin options
 "
@@ -57,7 +57,6 @@ colorscheme slate
 
 " show line numbers
 set number
-set relativenumber
 
 " keep cursor in center of screen
 set scrolloff=999
