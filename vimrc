@@ -43,6 +43,10 @@ let g:syntastic_go_checkers = ['govet', 'errcheck', 'go'] " set go checkers
 "
 inoremap jj <esc>
 map <C-t> :NERDTreeToggle<CR>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 "
 " end custom key mappings
 
