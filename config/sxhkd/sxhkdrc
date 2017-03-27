@@ -19,8 +19,12 @@ super + c
 	google-chrome-stable
 
 # lock the screen
-super + Escape
+super + ctrl +Escape
 	dm-tool switch-to-greeter
+
+# i3lock
+super + Escape
+	i3lock-fancy
 #
 # bspwm hotkeys
 #
