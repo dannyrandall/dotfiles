@@ -8,11 +8,11 @@ super + Return
 
 # program launcher
 super + space
-	rofi -combi-modi window,drun,run -show combi -modi combi
+	rofi -combi-modi window,run -show combi -modi combi
 
-# make sxhkd and bspwm reload their configuration files
+# make sxhkd reload its configuration files
 super + shift + r
-	$HOME/.config/bspwm/bspwmrc
+	pkill -USR1 -x sxhkd
 
 # open chrome
 super + c
@@ -31,7 +31,7 @@ super + Escape
 
 # quit bspwm normally
 super + alt + Escape
-	for pid in $(ps -ef | awk '/feh/ {print $2}') do kill -9 $pid; done;bspc quit
+	bspc quit; pkill -f "feh"
 
 # close and kill
 super + {_,shift + }q
