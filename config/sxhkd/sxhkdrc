@@ -31,7 +31,7 @@ super + Escape
 
 # quit bspwm normally
 super + alt + Escape
-	bspc quit
+	for pid in $(ps -ef | awk '/feh/ {print $2}') do kill -9 $pid; done;bspc quit
 
 # close and kill
 super + {_,shift + }q

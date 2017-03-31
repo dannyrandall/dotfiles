@@ -13,5 +13,5 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config click_to_focus true
 
-# set random backgrounds
-feh --randomize --bg-fill ~/pictures/backgrounds/
+# randomize background every 10 minutes
+watch -n600 feh --randomize --bg-fill ~/pictures/backgrounds/ &
