@@ -31,15 +31,17 @@ Before setting up dotfiles, install required programs:
   pacman -S feh
   ```
 * install [vim-plug](https://github.com/junegunn/vim-plug)
-  ``
+  ```
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  ``
-  Post ``./install.sh``, open vim and run
+  ```
+  After running ``./install.sh``, open vim and run
 	```
 	:source %
 	:PlugInstall
 	```
+* [gopass](https://github.com/justwatchcom/gopass)
+	* lots of setup required. to install, use yaourt ``yaourt -S gopass``
 * download backgrounds
 	* backgrounds are automatically downloaded by running ``install.sh``
-	* you can also just download backgrounds with ``backgrounds.sh``
+	* you can also update/download backgrounds by just running ``backgrounds.sh``
