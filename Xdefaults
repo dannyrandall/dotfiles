@@ -31,3 +31,8 @@ URxvt*color12: #49b9fe
 URxvt*color13: #fb4cb3
 URxvt*color14: #8be9fd
 URxvt*color15: #ededec
+
+# increase scrollback buffer
+xterm*SaveLines = 999999999
+URxvt*saveLines = 999999999
+URxvt*scrollTtyOutput: false # stay focused when scrolled up
