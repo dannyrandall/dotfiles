@@ -96,11 +96,13 @@ export GOPATH=~/documents/work/go
 alias gin="go run server.go" #spin up go server
 
 # docker alias's
-alias devup="cd $GOPATH/src/github.com/byuoitav/av-api && docker-compose -f docker-compose-build.yml build && docker-compose -f docker-compose-build.yml up -d && cd -"
-alias devdown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-build.yml down"
-alias stageup="env DOCKER_HUB_TAG=stage docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml pull && docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d"
+alias localup="cd $GOPATH/src/github.com/byuoitav/av-api && docker-compose -f docker-compose-build.yml build && docker-compose -f docker-compose-build.yml up -d && cd -"
+alias localdown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-build.yml down"
+alias devup="env DOCKER_HUB_TAG=development docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml pull && env DOCKER_HUB_TAG=development docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d"
+alias devdown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml down"
+alias stageup="env DOCKER_HUB_TAG=stage docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml pull && env DOCKER_HUB_TAG=stage docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d"
 alias stagedown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml down"
-alias produp="env DOCKER_HUB_TAG=production docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml pull && docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d"
+alias produp="env DOCKER_HUB_TAG=latest docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml pull && env DOCKER_HUB_TAG=latest docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d"
 alias proddown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml down"
 
 # load work env. vars
