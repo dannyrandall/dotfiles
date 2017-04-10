@@ -30,6 +30,10 @@ Before setting up dotfiles, install required programs:
   ```
   pacman -S feh
   ```
+* [clang](https://clang.llvm.org/)
+  ```
+  pacman -S clang
+  ```
 * install [vim-plug](https://github.com/junegunn/vim-plug)
   ```
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
