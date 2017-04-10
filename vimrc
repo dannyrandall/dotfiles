@@ -4,8 +4,10 @@ call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go'
 Plug 'scrooloose/syntastic'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
 Plug 'raimondi/delimitmate'
+Plug 'Quramy/tsuquyomi'
+Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
 " plugin options
@@ -36,6 +38,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0 " change when to check syntax
 let g:syntastic_go_checkers = ['govet', 'errcheck', 'go'] " set go checkers
+
+" cpp-enhanced-highlight
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
 
 " end plugin options
 "
