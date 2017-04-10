@@ -6,7 +6,6 @@ Plug 'fatih/vim-go'
 Plug 'scrooloose/syntastic'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
 Plug 'raimondi/delimitmate'
-Plug 'Quramy/tsuquyomi'
 Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
