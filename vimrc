@@ -37,6 +37,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0 " change when to check syntax
 let g:syntastic_go_checkers = ['govet', 'errcheck', 'go'] " set go checkers
+autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript " fix syntastic using xml for typescript files
+let g:syntastic_typescript_checkers = ['tslint']
 
 " cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
