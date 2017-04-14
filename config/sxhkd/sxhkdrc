@@ -69,27 +69,9 @@ super + ctrl + {x,y,z}
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-# focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
-
-# focus the next/previous node
-super + {_,shift + }c
-	bspc node -f {next,prev}
-
-# focus the next/previous desktop
+# cycle through desktops on a specific monitor 
 super + bracket{left,right}
-	bspc desktop -f {prev,next}
-
-# focus the last node/desktop
-super + {grave,Tab}
-	bspc {node,desktop} -f last
-
-# focus the older or newer node in the focus history
-super + {o,i}
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
+	bspc desktop -f {prev,next}.local
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
