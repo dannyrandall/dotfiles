@@ -67,7 +67,7 @@ Before setting up dotfiles, install required programs:
 	:PlugInstall
 	```
 * [gopass](https://github.com/justwatchcom/gopass)
-	* lots of setup required. to install, use yaourt ``yaourt -S gopass``
+	* lots of setup required. to install, use ``go get github.com/justwatchcom/gopass`` 
 * download backgrounds
 	* backgrounds are automatically downloaded by running ``install.sh``
 	* you can also update/download backgrounds by just running ``backgrounds.sh``
