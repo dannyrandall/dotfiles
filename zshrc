@@ -14,7 +14,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -29,10 +29,10 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -52,9 +52,9 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git wd)
-source <(gopass completion zsh)
 
 source $ZSH/oh-my-zsh.sh
+source <(gopass completion zsh)
 
 # User configuration
 
@@ -95,6 +95,7 @@ export GOPATH=~/documents/work/go
 
 alias gin="go run server.go" #spin up go server
 
+
 # docker alias's
 alias localup="cd $GOPATH/src/github.com/byuoitav/av-api && docker-compose -f docker-compose-build.yml build && docker-compose -f docker-compose-build.yml up -d && cd -"
 alias localdown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-build.yml down"
@@ -107,3 +108,14 @@ alias proddown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-
 
 # load work env. vars
 [ -f .envrc ] && source .envrc
+
+# functions
+function gitt() {
+	if [ -z "$1" ]; then
+		echo "No commit message supplied"
+	else
+		git add *
+		git commit -m $1
+		git status
+	fi
+}
