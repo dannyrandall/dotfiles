@@ -27,9 +27,10 @@ Before setting up dotfiles, install required programs:
   ```
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
   ```
-* [powerline fonts](https://github.com/powerline/fonts)
+* [powerline fonts](https://github.com/powerline/fonts) and [fonts for the web](https://github.com/google/fonts)
   ```
-  pacman -S powerline
+  yaourt -S powerline-fonts-git
+  yaourt -S ttf-google-fonts-git
   ```
 * [powerlevel9k theme](https://github.com/bhilburn/powerlevel9k#installation)
   ```
@@ -50,6 +51,10 @@ Before setting up dotfiles, install required programs:
 * [clang](https://clang.llvm.org/)
   ```
   pacman -S clang
+  ```
+* [cmake](https://cmake.org/)
+  ```
+  pacman -S cmake
   ```
 * install [vim-plug](https://github.com/junegunn/vim-plug)
   ```
