@@ -39,6 +39,10 @@ Before setting up dotfiles, install required programs:
   ```
   pacman -S feh
   ```
+* [i3lock-fancy](https://github.com/meskarune/i3lock-fancy)
+  ```
+  yaourt -S i3lock-fancy-git
+  ```
 * [go](https://golang.org/)
   ```
   pacman -S go
