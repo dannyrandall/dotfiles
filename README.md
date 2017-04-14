@@ -2,6 +2,17 @@
 
 Setup has only been tested on Arch Linux (my mac dotfiles are in [this](https://github.com/dgrandall/dotfiles/tree/mac) branch), and as such, all commands are made with that in mind.
 Before setting up dotfiles, install required programs:
+* [yaourt](https://archlinux.fr/yaourt-en)
+  ```
+  * edit pacman config file ``sudo vim /etc/pacman.conf``
+  * add this repo at the bottom
+	```
+	[archlinuxfr]
+	SigLevel = Never
+	Server = http://repo.archlinux.fr/$arch
+	```
+  * then install yaourt ``sudo pacman -Sy yaourt``
+  ```
 * [urxvt](https://wiki.archlinux.org/index.php/rxvt-unicode)
   ```
   pacman -S rxvt-unicode
@@ -29,6 +40,10 @@ Before setting up dotfiles, install required programs:
 * [feh](https://wiki.archlinux.org/index.php/feh)
   ```
   pacman -S feh
+  ```
+* [go](https://golang.org/)
+  ```
+  pacman -S go
   ```
 * [clang](https://clang.llvm.org/)
   ```
