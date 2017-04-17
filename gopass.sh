@@ -38,6 +38,12 @@ printf "Adding all variables!\n"
 for var in $vars; do
 	printf "Adding $var...\n"
 	secret=`gopass $gopassSub/$var`
+	if [ $? -ne 0 ]; then
+		printf "\n\n"
+		echo "Failed. Please check your gpg key password."
+		mv $envFile-old $envFile # restore old file
+		exit 1
+	fi
 	insert="export $var=\"$secret\""
 	echo $insert >> $envFile 
 	printf "\tSuccess!\n"
