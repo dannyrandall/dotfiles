@@ -7,6 +7,7 @@ Plug 'scrooloose/syntastic'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
 Plug 'raimondi/delimitmate'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'herringtondarkholme/yats.vim'
 call plug#end()
 
 " plugin options
