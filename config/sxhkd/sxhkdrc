@@ -25,6 +25,11 @@ super + ctrl +Escape
 # i3lock
 super + Escape
 	i3lock-fancy
+
+# screenshot
+super + alt + 3
+	import -window root ~/downloads/screenshot.jpg
+
 #
 # bspwm hotkeys
 #
