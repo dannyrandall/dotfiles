@@ -13,7 +13,7 @@ configFiles="bspwm sxhkd"	# folders to be placed in ./config/[here]
 
 ##########
 
-# create dotfiles_old in homedir
+# create dotfiles_old
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $olddir
 echo "...done"
@@ -41,5 +41,4 @@ for folder in $configFiles; do
 done
 
 # download backgrounds from unsplash
-chmod +x background.sh
 ./backgrounds.sh
