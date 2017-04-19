@@ -110,12 +110,4 @@ alias proddown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-
 [ -f .envrc ] && source .envrc
 
 # functions
-function gitt() {
-	if [ -z "$1" ]; then
-		echo "No commit message supplied"
-	else
-		git add *
-		git commit -m $1
-		git push
-	fi
-}
+[ -f .functions ] && source .functions
