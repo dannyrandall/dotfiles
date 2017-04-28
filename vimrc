@@ -28,6 +28,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1 " highlighting for go
 let g:go_fmt_command = "goimports" " use goimports for automatic import paths (instead of gofmt)
+
 " let g:go_list_type = quickfix fix location list window not appearing
 
 " syntastic
@@ -50,7 +51,9 @@ let g:cpp_member_variable_highlight = 1
 " custom key mappings
 "
 inoremap jj <esc>
-map <C-t> :NERDTreeToggle<CR>
+"fix vim-go at some point
+noremap <C-T> :NERDTreeToggle<CR>
+"window movement
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
