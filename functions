@@ -2,7 +2,7 @@ function gitt() {
 	if [ -z "$1" ]; then
 		echo "No commit message supplied"
 	else
-		git add *
+		git add -v -A
 		git commit -m $1
 		git push
 	fi

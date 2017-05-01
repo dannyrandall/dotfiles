@@ -81,3 +81,7 @@ set scrolloff=999
 
 " change location of swap files
 set directory=/tmp
+
+"scrolling for urxvt
+set mouse=a
+set ttymouse=xterm2
