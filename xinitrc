@@ -1,2 +1,2 @@
-xset r rate 660 25
+xset r rate 275 35
 exec bspwm
