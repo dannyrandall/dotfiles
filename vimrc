@@ -8,15 +8,14 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-
 Plug 'raimondi/delimitmate'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'herringtondarkholme/yats.vim'
-Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim' 
 call plug#end()
 
 " plugin options
 "
 " nerdtree
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif " if no files opened (ie, $ vim) then open by default
-autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif " if no files opened (ie, $ vim) then open by default autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif "open if file is a directory
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " close if nerdtree is last window
 
@@ -58,6 +57,9 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+" clipboard (linux)
+vnoremap <C-c> :%w !xclip -i -sel c<CR><CR>
+vnoremap <C-v> :r !xclip -o -sel -c<CR><CR> 
 "
 " end custom key mappings
 
@@ -85,3 +87,6 @@ set directory=/tmp
 "scrolling for urxvt
 set mouse=a
 set ttymouse=xterm2
+" disable button clicks
+:map <LeftMouse> <nop>
+:map <2-LeftMouse> <nop>
