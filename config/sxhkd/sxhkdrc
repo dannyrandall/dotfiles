@@ -128,3 +128,7 @@ super + {h,l}
         if ! bspc window -f $WINDOW; then \
                 bspc desktop -f $DESKTOP; \
         fi
+
+# switch between monitors
+super + backslash 
+	bspc monitor --focus next 
