@@ -15,3 +15,6 @@ bspc config click_to_focus true
 
 # randomize background every 10 minutes
 watch -n600 feh --randomize --bg-fill ~/pictures/backgrounds/ &
+
+# launch bars
+$HOME/.config/polybar/launch.sh

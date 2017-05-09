@@ -9,7 +9,7 @@
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/old_dotfiles             # old dotfiles backup directory
 files="zshrc xinitrc Xdefaults vimrc functions aliases vim/colors"    # list of files/folders to symlink in homedir
-configFiles="bspwm sxhkd"	# folders to be placed in ./config/[here]
+configFiles="bspwm sxhkd polybar"	# folders to be placed in ./config/[here]
 
 ##########
 
@@ -23,21 +23,21 @@ echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
 for file in $files; do
-    echo "Moving any existing dotfiles from ~.$file to $olddir"
-    mv ~/.$file ~/old_dotfiles/
-    echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/.$file
+	echo "Moving any existing dotfiles from ~.$file to $olddir"
+	mv ~/.$file ~/old_dotfiles/
+	echo "Creating symlink to $file in home directory."
+	ln -s $dir/$file ~/.$file
 done
 
 # do the same for the config folders
 mkdir $olddir/config
 for folder in $configFiles; do
-    echo "Moving existing config folders from ~/.config/$folder to ~$olddir/config/"
-    mv ~/.config/$folder ~/old_dotfiles/config/
-    echo "Creating symlink to $folder in home directory."
-    ln -s $dir/config/$folder ~/.config/$folder
+	echo "Moving existing config folders from ~/.config/$folder to ~$olddir/config/"
+	mv ~/.config/$folder ~/old_dotfiles/config/
+	echo "Creating symlink to $folder in home directory."
+	ln -s $dir/config/$folder ~/.config/$folder
 done
 
 # download backgrounds from unsplash

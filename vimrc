@@ -8,7 +8,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-
 Plug 'raimondi/delimitmate'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'herringtondarkholme/yats.vim'
-Plug 'leafgarland/typescript-vim' 
+Plug 'leafgarland/typescript-vim'
 Plug 'Chiel92/vim-autoformat'
 call plug#end()
 
@@ -64,7 +64,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 " clipboard (linux)
 vnoremap <C-c> :%w !xclip -i -sel c<CR><CR>
-vnoremap <C-v> :r !xclip -o -sel -c<CR><CR> 
+vnoremap <C-v> :r !xclip -o -sel -c<CR><CR>
 "
 " end custom key mappings
 
@@ -93,5 +93,7 @@ set directory=/tmp
 set mouse=a
 set ttymouse=xterm2
 " disable button clicks
-:map <LeftMouse> <nop>
-:map <2-LeftMouse> <nop>
+:noremap <LeftMouse> <nop>
+:noremap <2-LeftMouse> <nop>
+:inoremap <LeftMouse> <nop>
+:inoremap <2-LeftMouse> <nop>
