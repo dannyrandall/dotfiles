@@ -9,7 +9,6 @@ Plug 'raimondi/delimitmate'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'herringtondarkholme/yats.vim'
 Plug 'leafgarland/typescript-vim'
-Plug 'Chiel92/vim-autoformat'
 call plug#end()
 
 " plugin options
@@ -45,10 +44,6 @@ let g:syntastic_go_checkers = ['govet', 'errcheck', 'go'] " set go checkers
 " cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
-
-" vim-autoformat
-noremap <F3> :Autoformat<CR>
-au BufWrite * :Autoformat
 
 " end plugin options
 "
