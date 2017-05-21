@@ -95,10 +95,10 @@ export GPG_TTY=`tty`
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # aliases
-[ -f .aliases ] && source .aliases
+[ -f $HOME/.aliases ] && source $HOME/.aliases
 
 # functions
-[ -f .functions ] && source .functions
+[ -f $HOME/.functions ] && source $HOME/.functions
 
 # load work env. vars
-[ -f .envrc ] && source .envrc
+[ -f $HOME/.envrc ] && source $HOME/.envrc
