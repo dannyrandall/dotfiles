@@ -1,5 +1,5 @@
 # font-awesome font
-URxvt.font: xft:Hack:size=8
+URxvt.font: xft:"Roboto Mono Light for Powerline":size=8
 URxvt.letterspace: -5
 
 # real transparency
