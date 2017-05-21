@@ -35,4 +35,3 @@ URxvt*color15: #ededec
 # increase scrollback buffer
 xterm*SaveLines = 999999999
 URxvt*saveLines = 999999999
-URxvt*scrollTtyOutput: false # stay focused when scrolled up
