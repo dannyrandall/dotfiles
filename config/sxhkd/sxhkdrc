@@ -30,6 +30,14 @@ super + Escape
 super + alt + 3
 	import -window root ~/downloads/screenshot.jpg
 
+# keyboard brightness up
+XF86KbdBrightnessUp
+	kbdlight up 10	
+
+# keyboard brightness down
+XF86KbdBrightnessDown	
+	kbdlight down 10
+
 #
 # bspwm hotkeys
 #
