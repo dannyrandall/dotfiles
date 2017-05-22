@@ -68,10 +68,10 @@ Before setting up dotfiles, install required programs:
 	```
 * [gopass](https://github.com/justwatchcom/gopass)
 	* lots of setup required. to install, use ``yaourt -S gopass`` 
-* [illum](https://github.com/jmesmon/illum)
+* [acpilight](https://github.com/wavexx/acpilight)
 	* for backlight control
 	```
-	yaourt -S illum-git
+	yaourt -S acpilight 
 	```
 * download backgrounds
 	* backgrounds are automatically downloaded by running ``install.sh``

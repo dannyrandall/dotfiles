@@ -30,6 +30,14 @@ super + Escape
 super + alt + 3
 	import -window root ~/downloads/screenshot.jpg
 
+# backlight brightness up
+XF86MonBrightnessUp
+	xbacklight -inc 10
+
+# backlight brightness down
+XF86MonBrightnessDown
+	xbacklight -dec 10
+
 # keyboard brightness up
 XF86KbdBrightnessUp
 	kbdlight up 10	
