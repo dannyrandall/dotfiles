@@ -1,4 +1,5 @@
 alias gin="go install && go run server.go" #spin up go server
+alias byuvpn="sudo openconnect --user='drandal3' --authgroup='BYU-Public-Internal' https://dc-vpn.byu.edu"
 
 # docker alias's
 alias localup="cd $GOPATH/src/github.com/byuoitav/av-api && docker-compose -f docker-compose-build.yml build && docker-compose -f docker-compose-build.yml up -d && cd -"
