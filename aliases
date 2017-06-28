@@ -10,4 +10,5 @@ alias stagedown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker
 alias produp="env DOCKER_HUB_TAG=latest docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml pull && env DOCKER_HUB_TAG=latest docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d"
 alias proddown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml down"
 
-
+# byu server
+alias seasoning1="ssh adm.drandal3@seasoning1-dev.byu.edu -p 22222"
