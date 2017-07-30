@@ -52,7 +52,11 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git wd)
 
 source $ZSH/oh-my-zsh.sh
-source <(gopass completion zsh)
+
+
+if `gopass 2> /dev/null`; then
+	source <(gopass completion zsh)
+fi
 
 # User configuration
 
