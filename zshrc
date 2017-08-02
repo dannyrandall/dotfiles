@@ -53,8 +53,7 @@ plugins=(git wd)
 
 source $ZSH/oh-my-zsh.sh
 
-
-if `gopass 2> /dev/null`; then
+if gopass >/dev/null; then
 	source <(gopass completion zsh)
 fi
 
