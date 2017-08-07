@@ -83,7 +83,11 @@ export EDITOR='vim'
 
 # go
 export PATH=$GOPATH/bin:$PATH
-export GOPATH=~/documents/work/go
+if [[ $OSTYPE == darwin* ]]; then
+	export GOPATH=$HOME/programming/go	
+else 
+	export GOPATH=~/documents/work/go
+fi
 
 # use gpg tty instead of pinentry
 export GPG_TTY=`tty`
