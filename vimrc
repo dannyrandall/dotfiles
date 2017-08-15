@@ -39,6 +39,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0 " change when to check syntax
 let g:syntastic_go_checkers = ['govet', 'errcheck', 'go'] " set go checkers
+let g:syntastic_quiet_messages ={'level':'warnings'}
 "let g:syntastic_typescript_checkers = ['tslint']
 
 " cpp-enhanced-highlight
