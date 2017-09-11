@@ -13,4 +13,4 @@ alias proddown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-
 
 # byu server
 alias seasoning1="ssh adm.drandal3@seasoning1-dev.byu.edu -p 22222"
-alias configdb="mysql -h $CONFIGURATION_DATABASE_HOST -P $CONFIGURATION_DATABASE_PORT -u$CONFIGURATION_DATABASE_USERNAME -p$CONFIGURATION_DATABASE_PASSWORD"
+alias configdb="mysql --host=$CONFIGURATION_DATABASE_HOST --user=$CONFIGURATION_DATABASE_USERNAME --password=$CONFIGURATION_DATABASE_PASSWORD"
