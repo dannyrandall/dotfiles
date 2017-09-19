@@ -89,6 +89,9 @@ else
 	export GOPATH=~/documents/work/go
 fi
 
+# ruby gems
+export PATH=~/.gem/ruby/2.4.0/bin:$PATH
+
 # use gpg tty instead of pinentry
 export GPG_TTY=`tty`
 
@@ -109,3 +112,8 @@ export GPG_TTY=`tty`
 
 # load work env. vars
 [ -f $HOME/.envrc ] && source $HOME/.envrc
+
+# for tilix
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+	source /etc/profile.d/vte.sh
+fi
