@@ -69,6 +69,7 @@ vnoremap <C-v> :r !xclip -o -sel -c<CR><CR>
 "
 " set custom tab width
 set tabstop=4
+set expandtab
 set shiftwidth=4
 
 " set color scheme
@@ -88,6 +89,7 @@ set directory=/tmp
 "scrolling for urxvt
 set mouse=a
 set ttymouse=xterm2
+
 " disable button clicks
 :noremap <LeftMouse> <nop>
 :noremap <2-LeftMouse> <nop>
