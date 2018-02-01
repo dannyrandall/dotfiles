@@ -73,7 +73,7 @@ set expandtab
 set shiftwidth=4
 
 " set color scheme
-colorscheme slate
+" colorscheme slate
 " fix syntastic colors
 hi Search ctermbg=red ctermfg=black
 
