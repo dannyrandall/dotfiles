@@ -8,11 +8,15 @@ export TERM="xterm-256color"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.  # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="geometry/geometry"
+
+# custom stuff for geometry
 PROMPT_GEOMETRY_COLORIZE_SYMBOL="true"
 PROMPT_GEOMETRY_COLORIZE_ROOT="true"
-PROMPT_GEOMETRY_GIT_TIME="false"
 GEOMETRY_SYMBOL_GIT_DIRTY="◆"
 GEOMETRY_SYMBOL_GIT_CLEAN="◇"
+GEOMETRY_COLOR_GIT_DIRTY="red"
+GEOMETRY_COLOR_GIT_CLEAN="green"
+PROMPT_GEOMETRY_GIT_TIME="false"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
