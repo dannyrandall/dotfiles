@@ -36,7 +36,12 @@ printf "\n\n\n"
 # add environement variables
 printf "Adding all variables!\n"
 for var in $vars; do
+#    printf "checking $var\n"
+    [[ $var == *"-"* ]] && continue 
+    [[ $var == *"─"* ]] && continue 
+
 	printf "Adding $var...\n"
+#    printf "\trunning gopass $gopassSub/$var\n"
 	secret=`gopass $gopassSub/$var`
 	if [ $? -ne 0 ]; then
 		printf "\n\n"
