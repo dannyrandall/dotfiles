@@ -7,23 +7,19 @@ export TERM="xterm-256color"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.  # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+ZSH_THEME="geometry/geometry"
+PROMPT_GEOMETRY_COLORIZE_SYMBOL="true"
+PROMPT_GEOMETRY_COLORIZE_ROOT="true"
+PROMPT_GEOMETRY_GIT_TIME="false"
+GEOMETRY_SYMBOL_GIT_DIRTY="◆"
+GEOMETRY_SYMBOL_GIT_CLEAN="◇"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -44,9 +40,6 @@ COMPLETION_WAITING_DOTS="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -62,7 +55,8 @@ fi
 # User configuration
 
 # Default user
-DEFAULT_USER="dannyrandall"
+#DEFAULT_USER="dannyrandall"
+DEFAULT_USER=$USER
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -76,9 +70,6 @@ DEFAULT_USER="dannyrandall"
 #   export EDITOR='mvim'
 # fi
 export EDITOR='vim'
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -97,15 +88,6 @@ export PATH=~/.gem/ruby/2.4.0/bin:$PATH
 # use gpg tty instead of pinentry
 export GPG_TTY=`tty`
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # aliases
 [ -f $HOME/.aliases ] && source $HOME/.aliases
 
@@ -115,10 +97,7 @@ export GPG_TTY=`tty`
 # load work env. vars
 [ -f $HOME/.envrc ] && source $HOME/.envrc
 
-# for tilix
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-	source /etc/profile.d/vte.sh
-fi
-
 # fixing commands
 eval $(thefuck --alias)
+
+SPACESHIP_PROMPT_ADD_NEWLINE=false
