@@ -10,6 +10,7 @@ export TERM="xterm-256color"
 ZSH_THEME="geometry/geometry"
 
 # custom stuff for geometry
+GEOMETRY_PROMPT_PLUGINS=(git exec_time)
 PROMPT_GEOMETRY_COLORIZE_SYMBOL="true"
 PROMPT_GEOMETRY_COLORIZE_ROOT="true"
 GEOMETRY_SYMBOL_GIT_DIRTY="◆"
@@ -48,7 +49,11 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git wd)
+plugins=(git wd zsh-autosuggestions zsh-syntax-highlighting)
+
+# edits for plugins
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=25
+ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 source $ZSH/oh-my-zsh.sh
 
