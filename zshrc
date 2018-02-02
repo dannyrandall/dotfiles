@@ -53,7 +53,7 @@ plugins=(git wd zsh-autosuggestions zsh-syntax-highlighting)
 
 # edits for plugins
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=25
-ZSH_AUTOSUGGEST_USE_ASYNC=true
+#ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 source $ZSH/oh-my-zsh.sh
 
