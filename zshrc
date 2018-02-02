@@ -52,15 +52,14 @@ plugins=(git wd)
 
 source $ZSH/oh-my-zsh.sh
 
-if gopass >/dev/null; then
-	source <(gopass completion zsh)
-fi
+#if gopass >/dev/null; then
+#	source <(gopass completion zsh)
+#fi
 
 # User configuration
 
 # Default user
-#DEFAULT_USER="dannyrandall"
-DEFAULT_USER=$USER
+DEFAULT_USER="dannyrandall"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -103,5 +102,3 @@ export GPG_TTY=`tty`
 
 # fixing commands
 eval $(thefuck --alias)
-
-SPACESHIP_PROMPT_ADD_NEWLINE=false
