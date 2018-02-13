@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 function gitt() {
 	if [ -z "$1" ]; then
 		echo "No commit message supplied"
@@ -9,10 +10,10 @@ function gitt() {
 }
 
 function extract {
-	if [ -z "$1" ]; then
-# display usage if no parameters given
+    if [ -z "$1" ]; then
+    # display usage if no parameters given
 		echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
-	else
+    else
 		if [ -f $1 ] ; then
 			NAME=${1%.*}
 			mkdir $NAME && cd $NAME
@@ -47,4 +48,26 @@ function up {
 		P=$P/..
 	done
 	cd $P
+}
+
+function mstatus {
+    echo -e "API: \n"
+    curl "http://$1:8000/mstatus"
+    echo -e "\n\n"
+
+    echo -e "TouchPanel: \n"
+    curl "http://$1:8888/mstatus"
+    echo -e "\n\n"
+
+    echo -e "Router: \n"
+    curl "http://$1:7000/mstatus"
+    echo -e "\n\n"
+
+    echo -e "Translator: \n"
+    curl "http://$1:6998/mstatus"
+    echo -e "\n\n"
+
+    echo -e "Config DB: \n"
+    curl "http://$1:8006/mstatus"
+    echo -e "\n\n"
 }
