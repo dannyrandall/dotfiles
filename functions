@@ -71,3 +71,11 @@ function mstatus {
     curl "http://$1:8006/mstatus"
     echo -e "\n\n"
 }
+
+function pissh {
+    sshpass -p $PI_SSH_PASSWORD ssh -o StrictHostKeyChecking=no $PI_SSH_USERNAME@$1
+}
+
+function pireboot {
+    sshpass -p $PI_SSH_PASSWORD ssh -o StrictHostKeyChecking=no $PI_SSH_USERNAME@$1 'sudo reboot'
+}
