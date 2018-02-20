@@ -40,7 +40,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0 " change when to check syntax
 let g:syntastic_go_checkers = ['govet', 'errcheck', 'go'] " set go checkers
 let g:syntastic_quiet_messages ={'level':'warnings'}
-"let g:syntastic_typescript_checkers = ['tslint']
 
 " cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
@@ -63,7 +62,6 @@ vnoremap <C-c> :%w !xclip -i -sel c<CR><CR>
 vnoremap <C-v> :r !xclip -o -sel -c<CR><CR>
 "
 " end custom key mappings
-
 
 " extra stuff
 "

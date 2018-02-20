@@ -83,12 +83,12 @@ export EDITOR='vim'
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # go
-export PATH=$GOPATH/bin:$PATH
 if [[ $OSTYPE == darwin* ]]; then
 	export GOPATH=$HOME/programming/go	
 else 
 	export GOPATH=~/documents/work/go
 fi
+export PATH=$GOPATH/bin:$PATH
 
 # ruby gems
 export PATH=~/.gem/ruby/2.4.0/bin:$PATH
