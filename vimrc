@@ -70,6 +70,9 @@ set tabstop=4
 set expandtab
 set shiftwidth=4
 
+" fix backspace on mac
+set backspace=2
+
 " set color scheme
 colorscheme koehler
 
