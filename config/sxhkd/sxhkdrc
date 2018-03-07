@@ -19,7 +19,7 @@ super + c
 	google-chrome-stable
 
 # lock the screen
-super + ctrl +Escape
+super + ctrl + Escape
 	dm-tool switch-to-greeter
 
 # i3lock
