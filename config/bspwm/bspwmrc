@@ -1,14 +1,18 @@
-#! /bin/sh
+#!/bin/sh
 
+# set keyboard rate
+xset r rate 275 35
+
+# start sxhkd for keybindings
 sxhkd &
 
 monitors=$(xrandr -q | grep " connected" | wc -l)
 
 if [ $monitors = 1 ]; then 
-	bspc monitor LVDS-1 -d I II III IV V VI VII 
+	bspc monitor LVDS-1 -d I II III IV V VI VII
 elif [ $monitors = 2 ]; then 
-	bspc monitor DisplayPort-0 -d I II III IV V 
-	bspc monitor DVI-0 -d VI VII VIII IX X
+	bspc monitor DP-1 -d I II III IV V
+	bspc monitor DVI-I-1 -d VI VII VIII IX X
 elif [ $monitors = 3 ]; then 
 	bspc monitor DP-1 -d I II III 
 	bspc monitor DisplayPort-1-1 -d IV V VI 
@@ -26,7 +30,6 @@ bspc config right_padding 		 0
 bspc config left_padding		 0
 bspc config right_padding 		 0
 
-
 bspc config split_ratio          0.5
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
@@ -36,7 +39,5 @@ bspc config click_to_focus true
 bspc rule -a torguard state=floating
 
 # randomize background every 10 minutes
-watch -n600 feh --recursive --randomize --bg-fill ~/pictures/backgrounds/ &
-
-# launch bars
-#$HOME/.config/polybar/launch.sh
+# watch -n600 feh --recursive --randomize --bg-fill ~/pictures/backgrounds/
+/home/dannyrandall/.fehbg
