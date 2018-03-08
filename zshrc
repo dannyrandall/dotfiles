@@ -94,7 +94,7 @@ export PATH=$GOPATH/bin:$PATH
 export PATH=~/.gem/ruby/2.4.0/bin:$PATH
 
 # use gpg tty instead of pinentry
-export GPG_TTY=`tty`
+export GPG_TTY=$(tty)
 
 # aliases
 [ -f $HOME/.aliases ] && source $HOME/.aliases
