@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+function gitt() {
+	if [ -z "$1" ]; then
+		echo "No commit message supplied"
+	else
+		git add -v -A
+		git commit -m $1
+		git push
+	fi
+}
+
+function extract {
+    if [ -z "$1" ]; then
+    # display usage if no parameters given
+		echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+    else
+		if [ -f $1 ] ; then
+			NAME=${1%.*}
+			mkdir $NAME && cd $NAME
+			case $1 in
+				*.tar.bz2)   tar xvjf ../$1    ;;
+				*.tar.gz)    tar xvzf ../$1    ;;
+				*.tar.xz)    tar xvJf ../$1    ;;
+				*.lzma)      unlzma ../$1      ;;
+				*.bz2)       bunzip2 ../$1     ;;
+				*.rar)       unrar x -ad ../$1 ;;
+				*.gz)        gunzip ../$1      ;;
+				*.tar)       tar xvf ../$1     ;;
+				*.tbz2)      tar xvjf ../$1    ;;
+				*.tgz)       tar xvzf ../$1    ;;
+				*.zip)       unzip ../$1       ;;
+				*.Z)         uncompress ../$1  ;;
+				*.7z)        7za e ../$1        ;;
+				*.xz)        unxz ../$1        ;;
+				*.exe)       cabextract ../$1  ;;
+				*)           echo "extract: '$1' - unknown archive method" ;;
+		esac
+	else
+		echo "$1 - file does not exist"
+	fi
+fi
+}
+
+function up {
+	LIMIT=$1
+	P=$PWD
+	for ((i=1; i <= LIMIT; i++)); do
+		P=$P/..
+	done
+	cd $P
+}
+
+function mstatus {
+    echo -e "API: \n"
+    curl "http://$1:8000/mstatus"
+    echo -e "\n\n"
+
+    echo -e "TouchPanel: \n"
+    curl "http://$1:8888/mstatus"
+    echo -e "\n\n"
+
+    echo -e "Router: \n"
+    curl "http://$1:7000/mstatus"
+    echo -e "\n\n"
+
+    echo -e "Translator: \n"
+    curl "http://$1:6998/mstatus"
+    echo -e "\n\n"
+
+    echo -e "Config DB: \n"
+    curl "http://$1:8006/mstatus"
+    echo -e "\n\n"
+}
+
+function pissh {
+    sshpass -p $PI_SSH_PASSWORD ssh -o StrictHostKeyChecking=no $PI_SSH_USERNAME@$1
+}
+
+function pireboot {
+    sshpass -p $PI_SSH_PASSWORD ssh -o StrictHostKeyChecking=no $PI_SSH_USERNAME@$1 'sudo reboot'
+}
+
+function floatship {
+    curl -X GET --header "Accept: application/json" --header "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER" "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS"_device/$1
+}
+
+function floatfleet {
+    curl -X GET --header "Accept: application/json" --header "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER" "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS"/Pi3/$1
+}

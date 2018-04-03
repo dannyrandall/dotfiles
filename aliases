@@ -1,0 +1,18 @@
+alias gin="go install && go run server.go" #spin up go server
+alias byuvpn="sudo openconnect --authgroup='BYU-Public-Internal' https://dc-vpn.byu.edu"
+
+# docker alias's
+alias localup="cd $GOPATH/src/github.com/byuoitav/av-api && docker-compose -f docker-compose-build.yml build && docker-compose -f docker-compose-build.yml up -d && cd -"
+alias localdown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-build.yml down"
+alias devup="env DOCKER_HUB_TAG=development docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml pull && env DOCKER_HUB_TAG=development docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d"
+alias devdown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml down -t 0"
+alias testup="env DOCKER_HUB_TAG=testing docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml pull && env DOCKER_HUB_TAG=testing docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d"
+alias testdown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml down -t 0"
+alias stageup="env DOCKER_HUB_TAG=stage docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml pull && env DOCKER_HUB_TAG=stage docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d"
+alias stagedown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml down -t 0"
+alias produp="env DOCKER_HUB_TAG=latest docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml pull && env DOCKER_HUB_TAG=latest docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d"
+alias proddown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml down -t 0"
+
+# byu server
+alias seasoningdev="ssh -l adm.$NET_ID $SEASONING_DEV -p $SEASONING_DEV_PORT"
+alias configdb="mysql --host=$CONFIGURATION_DATABASE_HOST --user=$CONFIGURATION_DATABASE_USERNAME --password=$CONFIGURATION_DATABASE_PASSWORD"
