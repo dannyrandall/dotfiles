@@ -19,12 +19,13 @@ super + c
 	google-chrome-stable
 
 # lock the screen
+<<<<<<< HEAD
 super + ctrl + Escape
 	dm-tool switch-to-greeter
 
 # i3lock
 super + Escape
-	i3lock-fancy
+	dm-tool switch-to-greeter
 
 # screenshot
 super + alt + 3

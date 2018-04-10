@@ -79,3 +79,11 @@ function pissh {
 function pireboot {
     sshpass -p $PI_SSH_PASSWORD ssh -o StrictHostKeyChecking=no $PI_SSH_USERNAME@$1 'sudo reboot'
 }
+
+function floatship {
+    curl -X GET --header "Accept: application/json" --header "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER" "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS"_device/$1
+}
+
+function floatfleet {
+    curl -X GET --header "Accept: application/json" --header "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER" "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS"/Pi3/$1
+}

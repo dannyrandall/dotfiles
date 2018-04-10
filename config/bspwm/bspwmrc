@@ -39,5 +39,5 @@ bspc config click_to_focus true
 bspc rule -a torguard state=floating
 
 # randomize background every 10 minutes
-# watch -n600 feh --recursive --randomize --bg-fill ~/pictures/backgrounds/
-/home/dannyrandall/.fehbg
+# watch -n600 feh --recursive --randomize --bg-fill ~/pictures/backgrounds/ &
+systemd-run --on-active=10 /home/dannyrandall/.fehbg

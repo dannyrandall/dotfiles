@@ -1,4 +1,5 @@
 # If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export PATH="/usr/local/bin:$PATH"
@@ -51,12 +52,9 @@ plugins=(git wd zsh-autosuggestions zsh-syntax-highlighting)
 
 # edits for plugins
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=25
+#ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 source $ZSH/oh-my-zsh.sh
-
-#if gopass >/dev/null; then
-#	source <(gopass completion zsh)
-#fi
 
 # User configuration
 
@@ -68,7 +66,12 @@ DEFAULT_USER="dannyrandall"
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# preferred editor
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 export EDITOR='vim'
 
 # ssh

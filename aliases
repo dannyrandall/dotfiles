@@ -6,11 +6,13 @@ alias localup="cd $GOPATH/src/github.com/byuoitav/av-api && docker-compose -f do
 alias localdown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-build.yml down"
 alias devup="env DOCKER_HUB_TAG=development docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml pull && env DOCKER_HUB_TAG=development docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d"
 alias devdown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml down -t 0"
+alias testup="env DOCKER_HUB_TAG=testing docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml pull && env DOCKER_HUB_TAG=testing docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d"
+alias testdown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml down -t 0"
 alias stageup="env DOCKER_HUB_TAG=stage docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml pull && env DOCKER_HUB_TAG=stage docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d"
 alias stagedown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml down -t 0"
 alias produp="env DOCKER_HUB_TAG=latest docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml pull && env DOCKER_HUB_TAG=latest docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d"
 alias proddown="docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml down -t 0"
 
 # byu server
-alias seasoning1="ssh adm.drandal3@seasoning1-dev.byu.edu -p 22222"
+alias seasoningdev="ssh -l adm.$NET_ID $SEASONING_DEV -p $SEASONING_DEV_PORT"
 alias configdb="mysql --host=$CONFIGURATION_DATABASE_HOST --user=$CONFIGURATION_DATABASE_USERNAME --password=$CONFIGURATION_DATABASE_PASSWORD"
