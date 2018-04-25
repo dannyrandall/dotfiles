@@ -39,7 +39,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0 " change when to check syntax
 let g:syntastic_go_checkers = ['govet', 'errcheck', 'go'] " set go checkers
-let g:syntastic_quiet_messages ={'level':'warnings'}
+let g:syntastic_quiet_messages = {'level':'warnings'}
 
 " cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
@@ -69,6 +69,9 @@ vnoremap <C-v> :r !xclip -o -sel -c<CR><CR>
 set tabstop=4
 set expandtab
 set shiftwidth=4
+
+autocmd Filetype js,ts,css setlocal tabstop=2
+autocmd Filetype js,ts,css setlocal shiftwidth=2
 
 " fix backspace on mac
 set backspace=2

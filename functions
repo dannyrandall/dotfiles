@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 function gitt() {
 	if [ -z "$1" ]; then
 		echo "No commit message supplied"
@@ -30,7 +31,7 @@ function extract {
 				*.tgz)       tar xvzf ../$1    ;;
 				*.zip)       unzip ../$1       ;;
 				*.Z)         uncompress ../$1  ;;
-				*.7z)        7za e ../$1        ;;
+				*.7z)        7za e ../$1       ;;
 				*.xz)        unxz ../$1        ;;
 				*.exe)       cabextract ../$1  ;;
 				*)           echo "extract: '$1' - unknown archive method" ;;
@@ -85,5 +86,13 @@ function floatship {
 }
 
 function floatfleet {
+    curl -X GET --header "Accept: application/json" --header "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER" "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS"/Pi3/$1
+}
+
+function sfloatship {
+    curl -X GET --header "Accept: application/json" --header "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER" "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS"_device/scheduling/$1
+}
+
+function sfloatfleet {
     curl -X GET --header "Accept: application/json" --header "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER" "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS"/Pi3/$1
 }
