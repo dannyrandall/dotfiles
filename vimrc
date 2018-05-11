@@ -2,7 +2,7 @@
 call plug#begin()
 " plugins
 Plug 'scrooloose/nerdtree'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'scrooloose/syntastic'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
 Plug 'raimondi/delimitmate'
