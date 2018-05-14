@@ -3,7 +3,7 @@
 
 # dotfiles directory
 export DOTFILES=$HOME/dotfiles
-export ZSH=$DOTFILES/zsh
+# export ZSH=$DOTFILES/zsh
 
 # os specific things configurations
 if [[ $OSTYPE == darwin* ]]; then
@@ -14,17 +14,24 @@ if [[ $OSTYPE == darwin* ]]; then
     export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 else
     ## linux specific things
-	export GOPATH=~/documents/work/go
+	export GOPATH=$HOME/documents/work/go
 
     # use gpg tty instead of pinentry
     export GPG_TTY=$(tty)
+
+    # fixes while i still have oh-my-zsh on arch
+    export ZSH=$HOME/.oh-my-zsh
+    ZSH_THEME="geometry/geometry"
+    plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+
+    source $ZSH/oh-my-zsh.sh
 fi
 
 # path
 export TERM="xterm-256color"
 
 # theme
-source $ZSH/geometry/geometry.zsh
+# source $ZSH/geometry/geometry.zsh
 
 # custom stuff for geometry
 GEOMETRY_PROMPT_PLUGINS=(git exec_time)
@@ -46,7 +53,6 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-# plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 
 # edits for plugins
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=25

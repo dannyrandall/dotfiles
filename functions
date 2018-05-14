@@ -96,3 +96,83 @@ function sfloatship {
 function sfloatfleet {
     curl -X GET --header "Accept: application/json" --header "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER" "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS"/Pi3/$1
 }
+
+function apiup {
+    if [[ $# -eq 0 ]]; then
+        echo 'must include a pi hostname to emulate'
+        return 1
+    fi
+
+    export PI_HOSTNAME=$1
+    if [[ $# -eq 1 ]]; then
+        # default to using dev tag
+        TAG="development"
+    fi
+
+    if [[ $# -eq 2 ]]; then
+        TAG=$2
+
+        if [[ $TAG = *"prod"* ]]; then
+            TAG="latest"
+        fi
+    fi
+
+    echo "spinning up av-api $TAG containers as $1...."
+    env DOCKER_HUB_TAG=$TAG docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml pull 
+    env DOCKER_HUB_TAG=$TAG docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d
+}
+
+function schedulingup {
+    if [[ $# -eq 0 ]]; then
+        echo 'must include a pi hostname to emulate'
+        return 1
+    fi
+
+    export PI_HOSTNAME=$1
+    if [[ $# -eq 1 ]]; then
+        # default to using dev tag
+        TAG="development"
+    fi
+
+    if [[ $# -eq 2 ]]; then
+        TAG=$2
+
+        if [[ $TAG = *"prod"* ]]; then
+            TAG="latest"
+        fi
+    fi
+
+    echo "spinning up scheduling $TAG containers as $1...."
+    env DOCKER_HUB_TAG=$TAG docker-compose -f $GOPATH/src/github.com/byuoitav/scheduling/docker-compose.yml pull 
+    env DOCKER_HUB_TAG=$TAG docker-compose -f $GOPATH/src/github.com/byuoitav/scheduling/docker-compose.yml up -d
+}
+
+function apidown {
+    #if [[ $# -eq 0 ]]; then
+    #    echo 'must include a tag to take down'
+    #    return 1
+    #fi
+
+    #if [[ $tag = *"prod"* ]]; then
+    #    tag="latest"
+    #else
+    #    tag=$1
+    #fi
+
+    docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml down -t 0
+}
+
+function schedulingdown {
+    #if [[ $# -eq 0 ]]; then
+    #    echo 'must include a tag to take down'
+    #    return 1
+    #fi
+
+    #if [[ $tag = *"prod"* ]]; then
+    #    tag="latest"
+    #else
+    #    tag=$1
+    #fi
+
+    docker-compose -f $GOPATH/src/github.com/byuoitav/scheduling/docker-compose.yml down -t 0
+}
