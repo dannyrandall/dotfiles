@@ -3,7 +3,6 @@
 
 # dotfiles directory
 export DOTFILES=$HOME/dotfiles
-export ZSH=$DOTFILES/zsh
 
 # os specific things configurations
 if [[ $OSTYPE == darwin* ]]; then
@@ -14,7 +13,7 @@ if [[ $OSTYPE == darwin* ]]; then
     export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
     # theme (move this out of here once below is gone)
-    source $ZSH/themes/geometry/geometry.zsh
+    # source $ZSH/themes/geometry/geometry.zsh
 else
     ## linux specific things
     # use gpg tty instead of pinentry
@@ -32,11 +31,15 @@ else
         export GOPATH=$HOME/programming/go
 
         # source antigen
-        source $ZSH/antigen/antigen.zsh
+        source $DOTFILES/zsh/antigen/antigen.zsh
 
-        source $ZSH/themes/geometry/geometry.zsh
-        source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
-        source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        antigen bundle zsh-users/zsh-autosuggestions
+        antigen bundle zsh-users/zsh-syntax-highlighting
+        antigen bundle zsh-users/zsh-history-substring-search
+
+        antigen theme geometry-zsh/geometry
+
+        antigen apply
     fi
 fi
 
