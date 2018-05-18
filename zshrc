@@ -19,28 +19,22 @@ else
     # use gpg tty instead of pinentry
     export GPG_TTY=$(tty)
 
-    # fixes while i still have oh-my-zsh on arch
     if [[ $(uname -r) = *"ARCH"* ]]; then
-        export ZSH=$HOME/.oh-my-zsh
         export GOPATH=$HOME/documents/work/go
-        ZSH_THEME="geometry/geometry"
-        plugins=(zsh-autosuggestions zsh-syntax-highlighting)
-
-        source $ZSH/oh-my-zsh.sh
     else
         export GOPATH=$HOME/programming/go
-
-        # source antigen
-        source $DOTFILES/zsh/antigen/antigen.zsh
-
-        antigen bundle zsh-users/zsh-autosuggestions
-        antigen bundle zsh-users/zsh-syntax-highlighting
-        antigen bundle zsh-users/zsh-history-substring-search
-
-        antigen theme geometry-zsh/geometry
-
-        antigen apply
     fi
+
+    # source antigen
+    source $DOTFILES/zsh/antigen/antigen.zsh
+
+    antigen bundle zsh-users/zsh-autosuggestions
+    antigen bundle zsh-users/zsh-syntax-highlighting
+    antigen bundle zsh-users/zsh-history-substring-search
+
+    antigen theme geometry-zsh/geometry
+
+    antigen apply
 fi
 
 # path
@@ -64,7 +58,7 @@ HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 
 # completions
-fpath=($ZSH/completions $fpath)
+fpath=($DOTFILES/zsh/completions $fpath)
 autoload -Uz compinit && compinit -i
 
 # edits for plugins
