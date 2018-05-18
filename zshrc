@@ -3,7 +3,7 @@
 
 # dotfiles directory
 export DOTFILES=$HOME/dotfiles
-# export ZSH=$DOTFILES/zsh
+export ZSH=$DOTFILES/zsh
 
 # os specific things configurations
 if [[ $OSTYPE == darwin* ]]; then
@@ -12,6 +12,9 @@ if [[ $OSTYPE == darwin* ]]; then
 
     # path
     export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+    # theme (move this out of here once below is gone)
+    source $ZSH/themes/geometry/geometry.zsh
 else
     ## linux specific things
     export GOPATH=$HOME/programming/go
@@ -19,19 +22,22 @@ else
     # use gpg tty instead of pinentry
     export GPG_TTY=$(tty)
 
-    # fixes while i still have oh-my-zsh on arch
-    export ZSH=$HOME/.oh-my-zsh
-    ZSH_THEME="geometry/geometry"
-    plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+    # theme (move this out of here once below is gone)
+    source $ZSH/themes/geometry/geometry.zsh
 
-    source $ZSH/oh-my-zsh.sh
+    # fixes while i still have oh-my-zsh on arch
+    if [[ $(uname -r) = *"ARCH"* ]]; then
+        export ZSH=$HOME/.oh-my-zsh
+        export GOPATH=$HOME/documents/work/go
+        ZSH_THEME="geometry/geometry"
+        plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+
+        source $ZSH/oh-my-zsh.sh
+    fi
 fi
 
 # path
 export TERM="xterm-256color"
-
-# theme
-source $ZSH/themes/geometry/geometry.zsh
 
 # custom stuff for geometry
 GEOMETRY_PROMPT_PLUGINS=(git exec_time)
@@ -50,18 +56,12 @@ HYPHEN_INSENSITIVE="true"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-
 # completions
 fpath=($ZSH/completions $fpath)
 autoload -Uz compinit && compinit -i
 
 # edits for plugins
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=25
-
-# User configuration
 
 # Default user
 DEFAULT_USER="dannyrandall"
