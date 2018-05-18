@@ -17,13 +17,8 @@ if [[ $OSTYPE == darwin* ]]; then
     source $ZSH/themes/geometry/geometry.zsh
 else
     ## linux specific things
-    export GOPATH=$HOME/programming/go
-
     # use gpg tty instead of pinentry
     export GPG_TTY=$(tty)
-
-    # theme (move this out of here once below is gone)
-    source $ZSH/themes/geometry/geometry.zsh
 
     # fixes while i still have oh-my-zsh on arch
     if [[ $(uname -r) = *"ARCH"* ]]; then
@@ -33,6 +28,15 @@ else
         plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 
         source $ZSH/oh-my-zsh.sh
+    else
+        export GOPATH=$HOME/programming/go
+
+        # source antigen
+        source $ZSH/antigen/antigen.zsh
+
+        source $ZSH/themes/geometry/geometry.zsh
+        source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
+        source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     fi
 fi
 
