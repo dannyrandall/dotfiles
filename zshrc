@@ -10,11 +10,11 @@ if [[ $OSTYPE == darwin* ]]; then
     ## mac specific things
 	export GOPATH=$HOME/programming/go
 
-    # brew
+    # path
     export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 else
     ## linux specific things
-	export GOPATH=$HOME/documents/work/go
+    export GOPATH=$HOME/programming/go
 
     # use gpg tty instead of pinentry
     export GPG_TTY=$(tty)
@@ -31,7 +31,7 @@ fi
 export TERM="xterm-256color"
 
 # theme
-# source $ZSH/geometry/geometry.zsh
+source $ZSH/themes/geometry/geometry.zsh
 
 # custom stuff for geometry
 GEOMETRY_PROMPT_PLUGINS=(git exec_time)
@@ -53,6 +53,10 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
+
+# completions
+fpath=($ZSH/completions $fpath)
+autoload -Uz compinit && compinit -i
 
 # edits for plugins
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=25
