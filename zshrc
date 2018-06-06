@@ -11,9 +11,6 @@ if [[ $OSTYPE == darwin* ]]; then
 
     # path
     export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-
-    # theme (move this out of here once below is gone)
-    # source $ZSH/themes/geometry/geometry.zsh
 else
     ## linux specific things
     # use gpg tty instead of pinentry
@@ -24,18 +21,24 @@ else
     else
         export GOPATH=$HOME/programming/go
     fi
-
-    # source antigen
-    source $DOTFILES/zsh/antigen/antigen.zsh
-
-    antigen bundle zsh-users/zsh-autosuggestions
-    antigen bundle zsh-users/zsh-syntax-highlighting
-    antigen bundle zsh-users/zsh-history-substring-search
-
-    antigen theme geometry-zsh/geometry
-
-    antigen apply
 fi
+
+# antigen
+source $DOTFILES/zsh/antigen/antigen.zsh
+
+# antigen oh-my-zsh plugins
+antigen use oh-my-zsh
+antigen bundle wd
+
+# other antigen bundles
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
+
+# theme
+antigen theme geometry-zsh/geometry
+
+antigen apply
 
 # path
 export TERM="xterm-256color"

@@ -89,14 +89,6 @@ function floatfleet {
     curl -X GET --header "Accept: application/json" --header "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER" "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS"/Pi3/$1
 }
 
-function sfloatship {
-    curl -X GET --header "Accept: application/json" --header "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER" "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS"_device/scheduling/$1
-}
-
-function sfloatfleet {
-    curl -X GET --header "Accept: application/json" --header "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER" "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS"/Pi3/$1
-}
-
 function apiup {
     if [[ $# -eq 0 ]]; then
         echo 'must include a pi hostname to emulate'
