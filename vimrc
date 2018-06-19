@@ -5,10 +5,11 @@ Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'scrooloose/syntastic'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
+Plug 'tpope/vim-surround'
 Plug 'raimondi/delimitmate'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'herringtondarkholme/yats.vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " plugin options
@@ -39,11 +40,16 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0 " change when to check syntax
 let g:syntastic_go_checkers = ['govet', 'errcheck', 'go'] " set go checkers
+let g:syntastic_typescript_checkers = ['tslint']
 let g:syntastic_quiet_messages = {'level':'warnings'}
 
 " cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
+
+" vim-airline
+let g:airline_theme='minimalist'
+let g:airline_powerline_fonts=1 " allow powerline fonts
 
 " end plugin options
 "
@@ -72,6 +78,9 @@ set shiftwidth=4
 
 autocmd Filetype js,ts,css setlocal tabstop=2
 autocmd Filetype js,ts,css setlocal shiftwidth=2
+
+" format json
+command! FormatJSON %!python -m json.tool
 
 " fix backspace on mac
 set backspace=2

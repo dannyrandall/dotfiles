@@ -28,12 +28,12 @@ source $DOTFILES/zsh/antigen/antigen.zsh
 
 # antigen oh-my-zsh plugins
 antigen use oh-my-zsh
-antigen bundle wd
 
 # other antigen bundles
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle wd
 
 # theme
 antigen theme geometry-zsh/geometry
