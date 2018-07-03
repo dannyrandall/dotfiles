@@ -1,0 +1,6 @@
+lplinux (lastpass) https://lastpass.com/lplinux.php
+vim
+tmux
+alacritty
+torguard
+postman
