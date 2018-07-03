@@ -1,3 +1,10 @@
+## Setup Dotfiles
+```
+git clone git@github.com:dannyrandall/dotfiles.git
+cd dotfiles
+git submodule update --init --recursive
+```
+
 ## Setup
 
 Setup has only been tested on Arch Linux (my mac dotfiles are in [this](https://github.com/dgrandall/dotfiles/tree/mac) branch), and as such, all commands are made with that in mind.
