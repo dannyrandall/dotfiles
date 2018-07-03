@@ -4,3 +4,6 @@
 [submodule "packages/alacritty"]
 	path = packages/alacritty
 	url = git@github.com:jwilm/alacritty.git
+[submodule "packages/vim"]
+	path = packages/vim
+	url = git@github.com:vim/vim.git
