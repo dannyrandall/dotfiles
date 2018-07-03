@@ -15,3 +15,4 @@ make binary
 ```
 torguard
 postman
+git

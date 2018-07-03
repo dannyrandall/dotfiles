@@ -1,5 +1,4 @@
 # base path
-# export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 
 # dotfiles directory
 export DOTFILES=$HOME/dotfiles
@@ -19,7 +18,7 @@ else
     if [[ $(uname -r) = *"ARCH"* ]]; then
         export GOPATH=$HOME/documents/work/go
     else
-        export GOPATH=$HOME/programming/go
+        export GOPATH=$HOME/Documents/programming/go
     fi
 fi
 
@@ -78,6 +77,7 @@ DEFAULT_USER="dannyrandall"
 export EDITOR='vim'
 
 # go
+export PATH=/usr/local/go/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 
 # ruby gems
@@ -91,6 +91,9 @@ export PATH=~/.gem/ruby/2.4.0/bin:$PATH
 
 # load work env. vars
 [ -f $HOME/.envrc ] && source $HOME/.envrc
+
+# cargo (rust)
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # fixing commands
 eval $(thefuck --alias)

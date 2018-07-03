@@ -28,6 +28,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1 " highlighting for go
 let g:go_fmt_command = "goimports" " use goimports for automatic import paths (instead of gofmt)
+inoremap iee <C-o>:GoIfErr<CR>
 
 " let g:go_list_type = quickfix fix location list window not appearing
 

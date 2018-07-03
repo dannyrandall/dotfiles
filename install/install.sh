@@ -8,8 +8,8 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/old_dotfiles             # old dotfiles backup directory
-files="zshrc xinitrc vimrc functions aliases alacritty.yml tmux.conf vim/colors vim/after/ftplugin"    # list of files/folders to symlink in homedir
-configFiles="bspwm sxhkd polybar"	# folders to be placed in ./config/[here]
+files="zshrc vimrc functions aliases alacritty.yml tmux.conf vim/colors vim/after/ftplugin"    # list of files/folders to symlink in homedir
+configFiles=""	# folders to be placed in ./config/[here]
 
 ##########
 
@@ -32,13 +32,13 @@ for file in $files; do
 done
 
 # do the same for the config folders
-mkdir $olddir/config
-for folder in $configFiles; do
-	echo "Moving existing config folders from ~/.config/$folder to ~$olddir/config/"
-	mv ~/.config/$folder ~/old_dotfiles/config/
-	echo "Creating symlink to $folder in home directory."
-	ln -s $dir/config/$folder ~/.config/$folder
-done
+#mkdir $olddir/config
+#for folder in $configFiles; do
+#	echo "Moving existing config folders from ~/.config/$folder to ~$olddir/config/"
+#	mv ~/.config/$folder ~/old_dotfiles/config/
+#	echo "Creating symlink to $folder in home directory."
+#	ln -s $dir/config/$folder ~/.config/$folder
+#done
 
 # download backgrounds from unsplash
-./backgrounds.sh
+#./backgrounds.sh
