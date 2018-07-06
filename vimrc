@@ -2,14 +2,14 @@
 call plug#begin()
 " plugins
 Plug 'scrooloose/nerdtree'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'scrooloose/syntastic'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
+Plug 'w0rp/ale'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'tpope/vim-surround'
 Plug 'raimondi/delimitmate'
 Plug 'leafgarland/typescript-vim'
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " plugin options
@@ -18,7 +18,44 @@ call plug#end()
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif " if no files opened (ie, $ vim) then open by default autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif "open if file is a directory
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " close if nerdtree is last window
+
+" function to close vim if there aren't any useful buffers open
+function! CheckLeftBuffers()
+    if tabpagenr('$') == 1
+        let i = 1
+        while i <= winnr('$')
+            if getbufvar(winbufnr(i), '&buftype') == 'help' ||
+                \ getbufvar(winbufnr(i), '&buftype') == 'quickfix' ||
+                \ exists('t:NERDTreeBufName') &&
+                \   bufname(winbufnr(i)) == t:NERDTreeBufName ||
+                \ bufname(winbufnr(i)) == '__Tag_List__'
+                let i += 1
+            else
+                break
+            endif
+        endwhile
+        if i == winnr('$') + 1
+            qall
+        endif
+    unlet i
+    endif
+endfunction
+autocmd BufEnter * call CheckLeftBuffers()
+
+" ale
+let g:ale_linters = {
+    \   'go': ['go vet',
+    \          'golint'],
+    \}
+let g:ale_fixers = {
+    \   'go': ['goimports'],
+    \}
+let g:ale_fix_on_save = 1
+let g:ale_open_list = 1 " list errors in window at bottom
+let g:ale_list_window_size = 7 " height of error list at bottom
+let g:airline#extensions#ale#enabled = 1
+nmap <silent> <C-n> <Plug>(ale_next_wrap)
+nmap <silent> <C-m> <Plug>(ale_previous_wrap)
 
 " vim-go
 let g:go_highlight_functions = 1
@@ -27,22 +64,9 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1 " highlighting for go
-let g:go_fmt_command = "goimports" " use goimports for automatic import paths (instead of gofmt)
+let g:go_fmt_autosave = 0 " disable go fmt on save
 inoremap iee <C-o>:GoIfErr<CR>
 
-" let g:go_list_type = quickfix fix location list window not appearing
-
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%* " placement for checking
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0 " change when to check syntax
-let g:syntastic_go_checkers = ['govet', 'errcheck', 'go'] " set go checkers
-let g:syntastic_typescript_checkers = ['tslint']
-let g:syntastic_quiet_messages = {'level':'warnings'}
 
 " cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
@@ -57,7 +81,6 @@ let g:airline_powerline_fonts=1 " allow powerline fonts
 " custom key mappings
 "
 inoremap jj <esc>
-"fix vim-go at some point
 noremap <C-T> :NERDTreeToggle<CR>
 "window movement
 nnoremap <C-J> <C-W><C-J>
@@ -98,7 +121,7 @@ set scrolloff=999
 " change location of swap files
 set directory=/tmp
 
-"scrolling for urxvt
+" scrolling
 set mouse=a
 set ttymouse=xterm2
 
