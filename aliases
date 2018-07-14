@@ -1,4 +1,4 @@
-alias gin="go install && go run server.go" #spin up go server
+alias gin="go run server.go" #spin up go server
 alias byuvpn="sudo openconnect --authgroup='BYU-Public-Internal' https://dc-vpn.byu.edu"
 
 # byu server

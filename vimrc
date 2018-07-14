@@ -2,8 +2,8 @@
 call plug#begin()
 " plugins
 Plug 'scrooloose/nerdtree'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
 Plug 'w0rp/ale'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'tpope/vim-surround'
 Plug 'raimondi/delimitmate'
@@ -11,6 +11,11 @@ Plug 'leafgarland/typescript-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
+
+" set file specific things on
+filetype on
+filetype plugin on
+filetype indent on
 
 " plugin options
 "
@@ -46,14 +51,21 @@ autocmd BufEnter * call CheckLeftBuffers()
 let g:ale_linters = {
     \   'go': ['go vet',
     \          'golint'],
+    \   'typescript': ['tslint'],
     \}
 let g:ale_fixers = {
     \   'go': ['goimports'],
+    \   'typescript': ['prettier'],
     \}
 let g:ale_fix_on_save = 1
 let g:ale_open_list = 1 " list errors in window at bottom
 let g:ale_list_window_size = 7 " height of error list at bottom
+let g:ale_lint_delay = 2500
+let g:ale_lint_on_text_changed = 'always'
 let g:airline#extensions#ale#enabled = 1
+let g:ale_echo_msg_error_str = 'err'
+let g:ale_echo_msg_warning_str = 'warn'
+let g:ale_echo_msg_format = '%s [%linter%]'
 nmap <silent> <C-n> <Plug>(ale_next_wrap)
 nmap <silent> <C-m> <Plug>(ale_previous_wrap)
 
@@ -96,12 +108,13 @@ vnoremap <C-v> :r !xclip -o -sel -c<CR><CR>
 " extra stuff
 "
 " set custom tab width
+set shiftwidth=4
+set softtabstop=4
 set tabstop=4
 set expandtab
-set shiftwidth=4
 
-autocmd Filetype js,ts,css setlocal tabstop=2
-autocmd Filetype js,ts,css setlocal shiftwidth=2
+autocmd Filetype typescript setlocal ts=2 sw=2 sts=2 et
+autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 et
 
 " format json
 command! FormatJSON %!python -m json.tool
@@ -130,3 +143,7 @@ set ttymouse=xterm2
 :noremap <2-LeftMouse> <nop>
 :inoremap <LeftMouse> <nop>
 :inoremap <2-LeftMouse> <nop>
+
+" change colors for errors/warnings
+highlight ALEError ctermbg=Red ctermfg=Black
+highlight ALEWarning ctermbg=Blue ctermfg=Black
