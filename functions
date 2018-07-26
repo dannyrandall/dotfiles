@@ -73,11 +73,11 @@ function mstatus {
     echo -e "\n\n"
 }
 
-function pissh {
+function board {
     sshpass -p $PI_SSH_PASSWORD ssh -o StrictHostKeyChecking=no $PI_SSH_USERNAME@$1
 }
 
-function pireboot {
+function sink {
     sshpass -p $PI_SSH_PASSWORD ssh -o StrictHostKeyChecking=no $PI_SSH_USERNAME@$1 'sudo reboot'
 }
 
@@ -140,31 +140,9 @@ function schedulingup {
 }
 
 function apidown {
-    #if [[ $# -eq 0 ]]; then
-    #    echo 'must include a tag to take down'
-    #    return 1
-    #fi
-
-    #if [[ $tag = *"prod"* ]]; then
-    #    tag="latest"
-    #else
-    #    tag=$1
-    #fi
-
     docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml down -t 0
 }
 
 function schedulingdown {
-    #if [[ $# -eq 0 ]]; then
-    #    echo 'must include a tag to take down'
-    #    return 1
-    #fi
-
-    #if [[ $tag = *"prod"* ]]; then
-    #    tag="latest"
-    #else
-    #    tag=$1
-    #fi
-
     docker-compose -f $GOPATH/src/github.com/byuoitav/scheduling/docker-compose.yml down -t 0
 }
