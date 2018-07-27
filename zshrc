@@ -13,7 +13,7 @@ if [[ $OSTYPE == darwin* ]]; then
 else
     ## linux specific things
     # use gpg tty instead of pinentry
-    export GPG_TTY=$(tty)
+    # export GPG_TTY=$(tty)
 
     if [[ $(uname -r) = *"ARCH"* ]]; then
         export GOPATH=$HOME/documents/work/go
