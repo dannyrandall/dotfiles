@@ -1,6 +1,2 @@
 alias gin="go run server.go" #spin up go server
 alias byuvpn="sudo openconnect --authgroup='BYU-Public-Internal' https://dc-vpn.byu.edu"
-
-# byu server
-alias seasoningdev="ssh -l adm.$NET_ID $SEASONING_DEV -p $SEASONING_DEV_PORT"
-alias configdb="mysql --host=$CONFIGURATION_DATABASE_HOST --user=$CONFIGURATION_DATABASE_USERNAME --password=$CONFIGURATION_DATABASE_PASSWORD"

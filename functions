@@ -67,10 +67,6 @@ function mstatus {
     echo -e "Translator: \n"
     curl "http://$1:6998/mstatus"
     echo -e "\n\n"
-
-    echo -e "Config DB: \n"
-    curl "http://$1:8006/mstatus"
-    echo -e "\n\n"
 }
 
 function board {
@@ -82,11 +78,15 @@ function sink {
 }
 
 function floatship {
-    curl -X GET --header "Accept: application/json" --header "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER" "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS"_device/$1
+    address=$(lpass show --password "Shared-The Cube/env-vars/RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS")
+    header=$(lpass show --password "Shared-The Cube/env-vars/RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER")
+    curl -X GET --header "Accept: application/json" --header "$header" "$address"_device/$1
 }
 
 function floatfleet {
-    curl -X GET --header "Accept: application/json" --header "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER" "$RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS"/Pi3/$1
+    address=$(lpass show --password "Shared-The Cube/env-vars/RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS")
+    header=$(lpass show --password "Shared-The Cube/env-vars/RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER")
+    curl -X GET --header "Accept: application/json" --header "$header" "$address"/Pi3/$1
 }
 
 function apiup {

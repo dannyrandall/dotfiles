@@ -116,6 +116,10 @@ set expandtab
 autocmd Filetype typescript setlocal ts=2 sw=2 sts=2 et
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 et
 
+" dockerfile syntax highlighting
+au BufReadPost dockerfile set ft=dockerfile
+au BufReadPost dockerfile-arm set ft=dockerfile
+
 " format json
 command! FormatJSON %!python -m json.tool
 

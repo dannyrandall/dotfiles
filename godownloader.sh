@@ -12,17 +12,6 @@
 name=$1
 ##
 
-#while getopts 'u:o:' option; do
-#	 case "${option}" in
-#		 u)
-#			 uname="${OPTARG}"
-#			 ;;
-#         o) 
-#			 oname="${OPTARG}"
-#			 ;;
-#    esac
-#done
-
 urls=`curl -s https://api.github.com/users/$name/repos?per_page=200 | grep "full_name" | cut -d: -f2- | grep -o -P '(?<=\").*(?=\")'`
 
 for url in $urls; do 
