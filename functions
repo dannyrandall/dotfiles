@@ -70,11 +70,13 @@ function mstatus {
 }
 
 function board {
-    sshpass -p $PI_SSH_PASSWORD ssh -o StrictHostKeyChecking=no $PI_SSH_USERNAME@$1
+    uname=$(lpass show --password "Shared-The Cube/env-vars/PI_SSH_USERNAME")
+    ssh $uname@$1
 }
 
 function sink {
-    sshpass -p $PI_SSH_PASSWORD ssh -o StrictHostKeyChecking=no $PI_SSH_USERNAME@$1 'sudo reboot'
+    uname=$(lpass show --password "Shared-The Cube/env-vars/PI_SSH_USERNAME")
+    ssh $uname@$1 'sudo reboot'
 }
 
 function floatship {
@@ -87,6 +89,17 @@ function floatfleet {
     address=$(lpass show --password "Shared-The Cube/env-vars/RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS")
     header=$(lpass show --password "Shared-The Cube/env-vars/RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER")
     curl -X GET --header "Accept: application/json" --header "$header" "$address"/Pi3/$1
+}
+
+function updatedb {
+    curl -X GET "http://$1:7012/replication/start"
+}
+
+function spyglass {
+    google-chrome-stable "http://$1.byu.edu:8888/"      # open new chrome tab
+    wid=$(xdotool search --desktop 0 --class "google-chrome" | tail -n1)
+    xdotool windowactivate --sync $wid          # change focus to chrome
+    xdotool windowactivate --sync $wid key F12  # open dev tools
 }
 
 function apiup {

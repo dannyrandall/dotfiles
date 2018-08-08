@@ -129,6 +129,12 @@ set backspace=2
 " set color scheme
 colorscheme koehler
 
+" folding
+set foldmethod=syntax
+set foldnestmax=3
+set foldlevel=30
+set nofoldenable
+
 " show line numbers
 set number
 
