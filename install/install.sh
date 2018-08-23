@@ -30,15 +30,3 @@ for file in $files; do
 	echo "Creating symlink to $file in home directory."
 	ln -s $dir/$file ~/.$file
 done
-
-# do the same for the config folders
-#mkdir $olddir/config
-#for folder in $configFiles; do
-#	echo "Moving existing config folders from ~/.config/$folder to ~$olddir/config/"
-#	mv ~/.config/$folder ~/old_dotfiles/config/
-#	echo "Creating symlink to $folder in home directory."
-#	ln -s $dir/config/$folder ~/.config/$folder
-#done
-
-# download backgrounds from unsplash
-#./backgrounds.sh

@@ -71,12 +71,12 @@ function mstatus {
 
 function board {
     uname=$(lpass show --password "Shared-The Cube/env-vars/PI_SSH_USERNAME")
-    ssh $uname@$1
+    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $uname@$1
 }
 
 function sink {
     uname=$(lpass show --password "Shared-The Cube/env-vars/PI_SSH_USERNAME")
-    ssh $uname@$1 'sudo reboot'
+    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $uname@$1 'sudo reboot'
 }
 
 function floatship {
