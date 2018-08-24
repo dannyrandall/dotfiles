@@ -95,6 +95,10 @@ function updatedb {
     curl -X GET "http://$1:7012/replication/start"
 }
 
+function refresh {
+    curl -X PUT "http://$1:8888/refresh"
+}
+
 function spyglass {
     google-chrome-stable "http://$1.byu.edu:8888/"      # open new chrome tab
     wid=$(xdotool search --desktop 0 --class "google-chrome" | tail -n1)
