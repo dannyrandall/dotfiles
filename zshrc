@@ -12,8 +12,7 @@ if [[ $OSTYPE == darwin* ]]; then
     export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 else
     ## linux specific things
-    # use gpg tty instead of pinentry
-    # export GPG_TTY=$(tty)
+    export LPASS_DISABLE_PINENTRY=1
 
     if [[ $(uname -r) = *"ARCH"* ]]; then
         export GOPATH=$HOME/documents/work/go
@@ -77,8 +76,12 @@ DEFAULT_USER="dannyrandall"
 export EDITOR='vim'
 
 # go
-export PATH=/usr/local/go/bin:$PATH
+#export PATH=/usr/local/go/bin:$PATH
+export PATH=/snap/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
+
+# pip
+export PATH=~/.local/bin:$PATH
 
 # ruby gems
 export PATH=~/.gem/ruby/2.4.0/bin:$PATH
@@ -97,3 +100,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # fixing commands
 eval $(thefuck --alias)
+
+# Added by Krypton
+export GPG_TTY=$(tty)

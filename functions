@@ -79,6 +79,11 @@ function sink {
     ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $uname@$1 'sudo reboot'
 }
 
+function fixpitime {
+    uname=$(lpass show --password "Shared-The Cube/env-vars/PI_SSH_USERNAME")
+    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $uname@$1 'sudo ntpdate-debian && date'
+}
+
 function floatship {
     address=$(lpass show --password "Shared-The Cube/env-vars/RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS")
     header=$(lpass show --password "Shared-The Cube/env-vars/RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER")
