@@ -10,6 +10,7 @@ Plug 'raimondi/delimitmate'
 Plug 'leafgarland/typescript-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'elixir-editors/vim-elixir'
 call plug#end()
 
 " set file specific things on
@@ -68,6 +69,19 @@ let g:ale_echo_msg_warning_str = 'warn'
 let g:ale_echo_msg_format = '%s [%linter%]'
 nmap <silent> <C-n> <Plug>(ale_next_wrap)
 nmap <silent> <C-m> <Plug>(ale_previous_wrap)
+
+" You Complete Me
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_enable_diagnostic_signs = 0
+let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_echo_current_diagnostic = 0
+let g:ycm_max_diagnostics_to_display = 0
+"  let g:ycm_filter_diagnostics = {
+"    \ 'java': {
+"    \      'regex': ['.*'],
+"    \      'level': 'error',
+"    \    }
+"    \ }
 
 " vim-go
 let g:go_highlight_functions = 1
