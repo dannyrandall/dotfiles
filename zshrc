@@ -86,6 +86,9 @@ export PATH=~/.local/bin:$PATH
 # ruby gems
 export PATH=~/.gem/ruby/2.4.0/bin:$PATH
 
+# gradle
+export PATH=$PATH:/opt/gradle/gradle-4.10.1/bin
+
 # aliases
 [ -f $HOME/.aliases ] && source $HOME/.aliases
 
