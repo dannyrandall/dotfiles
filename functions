@@ -100,7 +100,7 @@ function updatedb {
     curl -X GET "http://$1:7012/replication/start"
 }
 
-function refresh {
+function swab {
     curl -X PUT "http://$1:8888/refresh"
 }
 
