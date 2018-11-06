@@ -53,19 +53,19 @@ function up {
 
 function mstatus {
     echo -e "API: \n"
-    curl "http://$1:8000/mstatus"
+    curl "http://$1:8000/status"
     echo -e "\n\n"
 
     echo -e "TouchPanel: \n"
-    curl "http://$1:8888/mstatus"
+    curl "http://$1:8888/status"
     echo -e "\n\n"
 
     echo -e "Router: \n"
-    curl "http://$1:7000/mstatus"
+    curl "http://$1:7000/status"
     echo -e "\n\n"
 
     echo -e "Translator: \n"
-    curl "http://$1:6998/mstatus"
+    curl "http://$1:6998/status"
     echo -e "\n\n"
 }
 
@@ -96,11 +96,9 @@ function floatfleet {
     curl -X GET --header "Accept: application/json" --header "$header" "$address"/Pi3/$1
 }
 
-function updatedb {
-    curl -X GET "http://$1:7012/replication/start"
-}
-
 function swab {
+    curl -X GET "http://$1:7012/replication/start"
+    sleep 3
     curl -X PUT "http://$1:8888/refresh"
 }
 
@@ -151,7 +149,7 @@ function apiup {
 
     echo "spinning up av-api $tag containers as $1, with db_tag $db_tag...."
     env DOCKER_HUB_TAG=$tag docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml pull
-    env DOCKER_HUB_TAG=$tag PI_HOSTNAME=$1 DB_USERNAME=$db_tag DB_ADDRESS="https://couchdb-$db_tag.avs.byu.edu:5984" docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d
+    env DOCKER_HUB_TAG=$tag SYSTEM_ID=$1 DB_USERNAME=$db_tag DB_ADDRESS="https://couchdb-$db_tag.avs.byu.edu:5984" docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d
 }
 
 function schedulingup {
