@@ -53,10 +53,24 @@ let g:ale_linters = {
     \   'go': ['go vet',
     \          'golint'],
     \   'typescript': ['tslint'],
+    \   'javascript': ['prettier'],
+    \   'html': ['prettier'],
+    \   'scss': ['prettier'],
+    \   'css': ['prettier'],
+    \   'markdown': ['prettier'],
+    \   'json': ['prettier'],
+    \   'yaml': ['prettier'],
     \}
 let g:ale_fixers = {
     \   'go': ['goimports'],
     \   'typescript': ['prettier'],
+    \   'javascript': ['prettier'],
+    \   'html': ['prettier'],
+    \   'scss': ['prettier'],
+    \   'css': ['prettier'],
+    \   'markdown': ['prettier'],
+    \   'json': ['prettier'],
+    \   'yaml': ['prettier'],
     \}
 let g:ale_fix_on_save = 1
 let g:ale_open_list = 1 " list errors in window at bottom
