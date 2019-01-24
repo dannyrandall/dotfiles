@@ -3,6 +3,8 @@
 # dotfiles directory
 export DOTFILES=$HOME/dotfiles
 
+export TERM="xterm-256color"
+
 # os specific things configurations
 if [[ $OSTYPE == darwin* ]]; then
     ## mac specific things
@@ -15,7 +17,7 @@ else
     export LPASS_DISABLE_PINENTRY=1
 
     if [[ $(uname -r) = *"ARCH"* ]]; then
-        export GOPATH=$HOME/documents/work/go
+        export GOPATH=$HOME/programming/go
     else
         export GOPATH=$HOME/Documents/programming/go
     fi
@@ -26,20 +28,18 @@ source $DOTFILES/zsh/antigen/antigen.zsh
 
 # antigen oh-my-zsh plugins
 antigen use oh-my-zsh
+antigen bundle wd
+antigen bundle git
 
 # other antigen bundles
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle wd
 
 # theme
 antigen theme geometry-zsh/geometry
 
 antigen apply
-
-# path
-export TERM="xterm-256color"
 
 # custom stuff for geometry
 GEOMETRY_PROMPT_PLUGINS=(git exec_time)
@@ -76,8 +76,8 @@ DEFAULT_USER="dannyrandall"
 export EDITOR='vim'
 
 # go
-#export PATH=/usr/local/go/bin:$PATH
-export PATH=/snap/bin:$PATH
+# export PATH=/usr/local/go/bin:$PATH
+# export PATH=/snap/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 
 # pip

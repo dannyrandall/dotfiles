@@ -84,6 +84,11 @@ function fixpitime {
     ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $uname@$1 'date && sudo ntpdate tick.byu.edu && date'
 }
 
+function restartdm {
+    uname=$(lpass show --password "Shared-The Cube/env-vars/PI_SSH_USERNAME")
+    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $uname@$1 'sudo systemctl restart device-monitoring && sudo systemctl enable /byu/device-monitoring/device-monitoring.service'
+}
+
 function floatship {
     address=$(lpass show --password "Shared-The Cube/env-vars/RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS")
     header=$(lpass show --password "Shared-The Cube/env-vars/RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER")
@@ -149,7 +154,8 @@ function apiup {
 
     echo "spinning up av-api $tag containers as $1, with db_tag $db_tag...."
     env DOCKER_HUB_TAG=$tag docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml pull
-    env DOCKER_HUB_TAG=$tag SYSTEM_ID=$1 DB_USERNAME=$db_tag DB_ADDRESS="https://couchdb-$db_tag.avs.byu.edu:5984" docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d
+    # env DOCKER_HUB_TAG=$tag SYSTEM_ID=$1 DB_USERNAME=$db_tag DB_ADDRESS="https://couchdb-$db_tag.avs.byu.edu:5984" docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d
+    env DOCKER_HUB_TAG=$tag SYSTEM_ID=$1 docker-compose -f $GOPATH/src/github.com/byuoitav/av-api/docker-compose-pull.yml up -d
 }
 
 function schedulingup {
