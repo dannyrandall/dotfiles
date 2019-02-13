@@ -32,6 +32,7 @@ function! CheckLeftBuffers()
         while i <= winnr('$')
             if getbufvar(winbufnr(i), '&buftype') == 'help' ||
                 \ getbufvar(winbufnr(i), '&buftype') == 'quickfix' ||
+                \ getbufvar(winbufnr(i), '&buftype') == 'loclist' ||
                 \ exists('t:NERDTreeBufName') &&
                 \   bufname(winbufnr(i)) == t:NERDTreeBufName ||
                 \ bufname(winbufnr(i)) == '__Tag_List__'
@@ -74,7 +75,7 @@ let g:ale_fixers = {
     \}
 let g:ale_fix_on_save = 1
 let g:ale_open_list = 1 " list errors in window at bottom
-let g:ale_list_window_size = 7 " height of error list at bottom
+let g:ale_list_window_size = 4 " height of error list at bottom
 let g:ale_lint_delay = 2500
 let g:ale_lint_on_text_changed = 'always'
 let g:airline#extensions#ale#enabled = 1
