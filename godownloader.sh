@@ -1,10 +1,5 @@
 #!/bin/bash
 
-###############################
-# Go Downloader 
-##### from Daniel Randall
-###############################
-
 # This script will download all go repositories availalbe from a specific Github user/orginization, using go get {url}
 # It will also change the git remote to use ssh.
 

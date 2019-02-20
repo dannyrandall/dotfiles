@@ -1,10 +1,5 @@
 #!/bin/bash
 
-###############################
-# byuoitav repo updater 
-##### from Daniel Randall
-###############################
-# 
 # this script will automatically update all byuoitav repos on their current branch
 
 ## variables
