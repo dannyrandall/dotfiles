@@ -164,7 +164,7 @@ function schedulingup {
         return 1
     fi
 
-    export PI_HOSTNAME=$1
+    export SYSTEM_ID=$1
     if [[ $# -eq 1 ]]; then
         # default to using dev tag
         TAG="development"
