@@ -146,7 +146,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 inoremap iee <C-o>:GoIfErr<CR>
 " fzf
 nnoremap <C-f> :Ag<CR>
-let g:fzf_layout = { 'down': "~25%" }
+let g:fzf_layout = { 'down': "~40%" }
 "
 " end custom key mappings
 
