@@ -11,6 +11,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'elixir-editors/vim-elixir'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " set file specific things on
@@ -105,24 +107,31 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1 " highlighting for go
+let g:go_def_mapping_enabled = 0 " so i can have custom keys for go def
 let g:go_fmt_autosave = 0 " disable go fmt on save
-inoremap iee <C-o>:GoIfErr<CR>
-
 
 " cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 
 " vim-airline
-let g:airline_theme='minimalist'
-let g:airline_powerline_fonts=1 " allow powerline fonts
+let g:airline_theme = 'minimalist'
+let g:airline_powerline_fonts = 1 " allow powerline fonts
+
+" ctrlp
+" let g:ctrlp_working_path_mode = 'rw'
+" let g:ctrlp_regexp = 1
+" let g:ctrlp_by_filename = 1
+" let g:ctrlp_custom_ignore = {
+" 	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+" 	\ 'file': '\v\.(exe|so|dll)$',
+" 	\ }
 
 " end plugin options
 "
 " custom key mappings
 "
 inoremap jj <esc>
-noremap <C-T> :NERDTreeToggle<CR>
 "window movement
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -131,6 +140,13 @@ nnoremap <C-H> <C-W><C-H>
 " clipboard (linux)
 vnoremap <C-c> :%w !xclip -i -sel c<CR><CR>
 vnoremap <C-v> :r !xclip -o -sel -c<CR><CR>
+" nerdtree
+nnoremap <C-t> :NERDTreeToggle<CR>
+" vim-go
+inoremap iee <C-o>:GoIfErr<CR>
+" fzf
+nnoremap <C-f> :Ag<CR>
+let g:fzf_layout = { 'down': "~25%" }
 "
 " end custom key mappings
 
@@ -186,3 +202,6 @@ set ttymouse=xterm2
 " change colors for errors/warnings
 highlight ALEError ctermbg=Red ctermfg=Black
 highlight ALEWarning ctermbg=Blue ctermfg=Black
+
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview('right:50%'), <bang>0)
