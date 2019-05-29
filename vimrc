@@ -118,14 +118,11 @@ let g:cpp_member_variable_highlight = 1
 let g:airline_theme = 'minimalist'
 let g:airline_powerline_fonts = 1 " allow powerline fonts
 
-" ctrlp
-" let g:ctrlp_working_path_mode = 'rw'
-" let g:ctrlp_regexp = 1
-" let g:ctrlp_by_filename = 1
-" let g:ctrlp_custom_ignore = {
-" 	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
-" 	\ 'file': '\v\.(exe|so|dll)$',
-" 	\ }
+" fzf
+" show preview window with Rg
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep('rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1, fzf#vim#with_preview('right:50%'))
+let g:fzf_layout = { 'down': "~40%" }
 
 " end plugin options
 "
@@ -145,8 +142,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 " vim-go
 inoremap iee <C-o>:GoIfErr<CR>
 " fzf
-nnoremap <C-f> :Ag<CR>
-let g:fzf_layout = { 'down': "~40%" }
+nnoremap <C-f> :Rg<CR>
 "
 " end custom key mappings
 
@@ -202,7 +198,3 @@ set ttymouse=xterm2
 " change colors for errors/warnings
 highlight ALEError ctermbg=Red ctermfg=Black
 highlight ALEWarning ctermbg=Blue ctermfg=Black
-
-" show preview window with Ag
-command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview('right:50%'), <bang>0)
