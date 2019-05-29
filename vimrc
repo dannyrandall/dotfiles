@@ -203,5 +203,6 @@ set ttymouse=xterm2
 highlight ALEError ctermbg=Red ctermfg=Black
 highlight ALEWarning ctermbg=Blue ctermfg=Black
 
+" show preview window with Ag
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview('right:50%'), <bang>0)
