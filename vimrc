@@ -140,7 +140,8 @@ vnoremap <C-v> :r !xclip -o -sel -c<CR><CR>
 " nerdtree
 nnoremap <C-t> :NERDTreeToggle<CR>
 " vim-go
-inoremap iee <C-o>:GoIfErr<CR>
+autocmd Filetype go nnoremap <buffer> <C-d> :GoDef<CR>
+autocmd Filetype go nnoremap <buffer> <C-e> :GoDefPop<CR>
 " fzf
 nnoremap <C-f> :Rg<CR>
 "
