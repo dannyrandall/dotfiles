@@ -2,7 +2,7 @@
 call plug#begin()
 " plugins
 Plug 'scrooloose/nerdtree'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'tpope/vim-surround'
@@ -10,15 +10,28 @@ Plug 'raimondi/delimitmate'
 Plug 'leafgarland/typescript-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'elixir-editors/vim-elixir'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
-" set file specific things on
+" general stuff
 filetype on
 filetype plugin on
 filetype indent on
+set autoindent
+set smartindent
+set autoread
+set encoding=utf-8
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set expandtab
+set backspace=2 " fix backspace on mac
+
+syntax on
+colorscheme dracula " for colors
+highlight Normal ctermbg=None
 
 " plugin options
 "
@@ -65,6 +78,8 @@ let g:ale_linters = {
     \   'yaml': ['prettier'],
     \}
 let g:ale_fixers = {
+    \   '*': ['remove_trailing_lines',
+    \         'trim_whitespace'],
     \   'go': ['goimports'],
     \   'typescript': ['prettier'],
     \   'javascript': ['prettier'],
@@ -75,12 +90,17 @@ let g:ale_fixers = {
     \   'json': ['prettier'],
     \   'yaml': ['prettier'],
     \}
-let g:ale_fix_on_save = 1
 let g:ale_open_list = 1 " list errors in window at bottom
-let g:ale_list_window_size = 4 " height of error list at bottom
-let g:ale_lint_delay = 2500
-let g:ale_lint_on_text_changed = 'always'
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_list_window_size = 3 " height of error list at bottom
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 1
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_enter = 1
 let g:airline#extensions#ale#enabled = 1
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
 let g:ale_echo_msg_error_str = 'err'
 let g:ale_echo_msg_warning_str = 'warn'
 let g:ale_echo_msg_format = '%s [%linter%]'
@@ -93,22 +113,21 @@ let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_enable_diagnostic_highlighting = 0
 let g:ycm_echo_current_diagnostic = 0
 let g:ycm_max_diagnostics_to_display = 0
-"  let g:ycm_filter_diagnostics = {
-"    \ 'java': {
-"    \      'regex': ['.*'],
-"    \      'level': 'error',
-"    \    }
-"    \ }
 
 " vim-go
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1 " highlighting for go
 let g:go_def_mapping_enabled = 0 " so i can have custom keys for go def
 let g:go_fmt_autosave = 0 " disable go fmt on save
+let g:go_auto_sameids = 1 " show when the same variable is highlighted
+let g:go_auto_type_info = 1 " show type info in status bar
+let g:go_updatetime = 500 " a litte faster (default is 800)
 
 " cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
@@ -148,12 +167,6 @@ nnoremap <C-f> :Rg<CR>
 " end custom key mappings
 
 " extra stuff
-"
-" set custom tab width
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-set expandtab
 
 autocmd Filetype typescript setlocal ts=2 sw=2 sts=2 et
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 et
@@ -165,11 +178,8 @@ au BufReadPost dockerfile-arm set ft=dockerfile
 " format json
 command! FormatJSON %!python -m json.tool
 
-" fix backspace on mac
-set backspace=2
-
 " set color scheme
-colorscheme koehler
+" color dracula
 
 " folding
 set foldmethod=syntax
@@ -198,4 +208,4 @@ set ttymouse=xterm2
 
 " change colors for errors/warnings
 highlight ALEError ctermbg=Red ctermfg=Black
-highlight ALEWarning ctermbg=Blue ctermfg=Black
+highlight ALEWarning ctermbg=Yellow ctermfg=Black
