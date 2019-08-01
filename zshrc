@@ -144,3 +144,5 @@ eval $(thefuck --alias)
 
 # Added by Krypton
 export GPG_TTY=$(tty)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -7,3 +7,6 @@
 [submodule "packages/vim"]
 	path = packages/vim
 	url = git@github.com:vim/vim.git
+[submodule "packages/terminal-app"]
+	path = packages/terminal-app
+	url = https://github.com/dracula/terminal-app.git
