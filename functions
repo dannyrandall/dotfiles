@@ -50,60 +50,19 @@ function up {
 	cd $P
 }
 
-function mstatus {
-    echo -e "API: \n"
-    curl "http://$1:8000/status"
-    echo -e "\n\n"
-
-    echo -e "TouchPanel: \n"
-    curl "http://$1:8888/status"
-    echo -e "\n\n"
-
-    echo -e "Router: \n"
-    curl "http://$1:7000/status"
-    echo -e "\n\n"
-
-    echo -e "Translator: \n"
-    curl "http://$1:6998/status"
-    echo -e "\n\n"
-}
-
 function board {
-    uname=$(lpass show --password "Shared-The Cube/env-vars/PI_SSH_USERNAME")
+    uname=pi
     ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $uname@$1
 }
 
 function sink {
-    uname=$(lpass show --password "Shared-The Cube/env-vars/PI_SSH_USERNAME")
+    uname=pi
     ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $uname@$1 'sudo reboot'
 }
 
 function fixpitime {
-    uname=$(lpass show --password "Shared-The Cube/env-vars/PI_SSH_USERNAME")
+    uname=pi
     ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $uname@$1 'date && sudo ntpdate tick.byu.edu && date'
-}
-
-function restartdm {
-    uname=$(lpass show --password "Shared-The Cube/env-vars/PI_SSH_USERNAME")
-    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $uname@$1 'sudo systemctl restart device-monitoring && sudo systemctl enable /byu/device-monitoring/device-monitoring.service'
-}
-
-function floatship {
-    address=$(lpass show --password "Shared-The Cube/env-vars/RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS")
-    header=$(lpass show --password "Shared-The Cube/env-vars/RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER")
-    curl -X GET --header "Accept: application/json" --header "$header" "$address"_device/$1
-}
-
-function floatfleet {
-    address=$(lpass show --password "Shared-The Cube/env-vars/RASPI_DEPLOYMENT_MICROSERVICE_WSO2_ADDRESS")
-    header=$(lpass show --password "Shared-The Cube/env-vars/RASPI_DEPLOYMENT_MICROSERVICE_WSO2_HEADER")
-    curl -X GET --header "Accept: application/json" --header "$header" "$address"/Pi3/$1
-}
-
-function swab {
-    curl -X GET "http://$1:7012/replication/start"
-    sleep 3
-    curl -X PUT "http://$1:8888/refresh"
 }
 
 function spyglass {
@@ -178,7 +137,7 @@ function schedulingup {
     fi
 
     echo "spinning up scheduling $TAG containers as $1...."
-    env DOCKER_HUB_TAG=$TAG docker-compose -f $GOPATH/src/github.com/byuoitav/scheduling/docker-compose.yml pull 
+    env DOCKER_HUB_TAG=$TAG docker-compose -f $GOPATH/src/github.com/byuoitav/scheduling/docker-compose.yml pull
     env DOCKER_HUB_TAG=$TAG docker-compose -f $GOPATH/src/github.com/byuoitav/scheduling/docker-compose.yml up -d
 }
 

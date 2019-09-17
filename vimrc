@@ -28,6 +28,8 @@ set softtabstop=4
 set tabstop=4
 set expandtab
 set backspace=2 " fix backspace on mac
+set splitbelow
+set splitright
 
 syntax on
 colorscheme dracula " for colors
@@ -93,7 +95,7 @@ let g:ale_fixers = {
 let g:ale_open_list = 1 " list errors in window at bottom
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
-let g:ale_list_window_size = 3 " height of error list at bottom
+let g:ale_list_window_size = 5 " height of error list at bottom
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_fix_on_save = 1
@@ -126,7 +128,7 @@ let g:go_highlight_build_constraints = 1 " highlighting for go
 let g:go_def_mapping_enabled = 0 " so i can have custom keys for go def
 let g:go_fmt_autosave = 0 " disable go fmt on save
 let g:go_auto_sameids = 1 " show when the same variable is highlighted
-let g:go_auto_type_info = 1 " show type info in status bar
+let g:go_auto_type_info = 0 " show type info in status bar
 let g:go_updatetime = 500 " a litte faster (default is 800)
 
 " cpp-enhanced-highlight

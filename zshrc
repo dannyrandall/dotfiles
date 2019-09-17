@@ -103,6 +103,7 @@ HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 
 # completions
+fpath=($ZSH/plugins/wd $fpath)
 fpath=($DOTFILES/zsh/completions $fpath)
 autoload -Uz compinit && compinit -i
 
