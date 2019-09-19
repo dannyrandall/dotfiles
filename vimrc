@@ -68,8 +68,7 @@ autocmd BufEnter * call CheckLeftBuffers()
 
 " ale
 let g:ale_linters = {
-    \   'go': ['go vet',
-    \          'golint'],
+    \   'go': ['golangci-lint'],
     \   'typescript': ['tslint'],
     \   'javascript': ['prettier'],
     \   'html': ['prettier'],
@@ -106,6 +105,8 @@ let g:ale_sign_warning = '⚠'
 let g:ale_echo_msg_error_str = 'err'
 let g:ale_echo_msg_warning_str = 'warn'
 let g:ale_echo_msg_format = '%s [%linter%]'
+let g:ale_go_golangci_lint_options= '--fast --tests=false'
+let g:ale_go_golangci_lint_package = 1
 nmap <silent> <C-n> <Plug>(ale_next_wrap)
 nmap <silent> <C-m> <Plug>(ale_previous_wrap)
 
