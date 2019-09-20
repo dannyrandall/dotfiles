@@ -33,7 +33,7 @@ set splitright
 
 syntax on
 colorscheme dracula " for colors
-" highlight Normal ctermbg=None
+highlight Normal ctermbg=None
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
