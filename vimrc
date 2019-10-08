@@ -212,8 +212,8 @@ vnoremap <C-c> :%w !xclip -i -sel c<CR><CR>
 vnoremap <C-v> :r !xclip -o -sel -c<CR><CR>
 " nerdtree
 " vim-go
-" autocmd Filetype go nnoremap <buffer> <C-d> :GoDef<CR>
-" autocmd Filetype go nnoremap <buffer> <C-e> :GoDefPop<CR>
+autocmd Filetype go nnoremap <buffer> <C-d> :GoDef<CR>
+autocmd Filetype go nnoremap <buffer> <C-e> :GoDefPop<CR>
 " fzf
 nnoremap <C-f> :Rg<CR>
 "
