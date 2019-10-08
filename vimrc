@@ -44,10 +44,11 @@ let g:ale_linters = {
     \   'go': ['golangci-lint'],
     \   'typescript': ['eslint'],
     \   'javascript': ['eslint'],
+    \   'markdown': ['vale'],
+    \   'asciidoc': ['vale'],
     \   'html': ['prettier'],
     \   'scss': ['prettier'],
     \   'css': ['prettier'],
-    \   'markdown': ['prettier'],
     \   'json': ['prettier'],
     \   'yaml': ['prettier'],
     \}
@@ -60,7 +61,6 @@ let g:ale_fixers = {
     \   'html': ['prettier'],
     \   'scss': ['prettier'],
     \   'css': ['prettier'],
-    \   'markdown': ['prettier'],
     \   'json': ['prettier'],
     \   'yaml': ['prettier'],
     \}
