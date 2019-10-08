@@ -1,12 +1,6 @@
 [submodule "zsh/antigen"]
 	path = zsh/antigen
 	url = https://github.com/zsh-users/antigen.git
-[submodule "packages/alacritty"]
-	path = packages/alacritty
-	url = git@github.com:jwilm/alacritty.git
-[submodule "packages/vim"]
-	path = packages/vim
-	url = git@github.com:vim/vim.git
 [submodule "packages/terminal-app"]
 	path = packages/terminal-app
 	url = https://github.com/dracula/terminal-app.git
