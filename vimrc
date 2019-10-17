@@ -13,24 +13,24 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
-call plug#end()
+call  plug#end()
 
 " general stuff
-filetype on
-filetype plugin on
-filetype indent on
-set autoindent
-set smartindent
 set autoread
 set encoding=utf-8
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-set expandtab
 set backspace=2 " fix backspace on mac
 set splitbelow
 set splitright
 
+" tabs for indentation, spaces for alignment
+set noexpandtab
+set autoindent
+filetype plugin indent on
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+
+" theme, syntax highlighting
 syntax on
 colorscheme dracula " for colors
 highlight Normal ctermbg=None
@@ -88,7 +88,7 @@ highlight ALEWarning ctermbg=Yellow ctermfg=Black cterm=underline
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" coc.vim (autocomplete)
+" coc.nvim (autocomplete)
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 set hidden " apparently TextEdit might fail if not set?
