@@ -18,8 +18,7 @@ if [[ $OSTYPE == darwin* ]]; then
 
     # path
     export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-else
-    ## linux specific things
+else ## linux specific things
     export LPASS_DISABLE_PINENTRY=1
 
     if [[ $(uname -r) = *"ARCH"* ]]; then
@@ -123,7 +122,7 @@ export PATH=$GOPATH/bin:$PATH
 export PATH=~/.local/bin:$PATH
 
 # ruby gems
-export PATH=~/.gem/ruby/2.4.0/bin:$PATH
+export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 
 # gradle
 export PATH=$PATH:/opt/gradle/gradle-4.10.1/bin
