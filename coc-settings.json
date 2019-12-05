@@ -1,6 +1,6 @@
 {
   "diagnostic.enable": false,
-  "suggest.maxCompleteItemCount": 50,
+  "suggest.maxCompleteItemCount": 10,
   "languageserver": {
     "golang": {
       "command": "gopls",

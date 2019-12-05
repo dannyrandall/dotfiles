@@ -19,14 +19,14 @@ if [[ $OSTYPE == darwin* ]]; then
     # path
     export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 else ## linux specific things
-    export LPASS_DISABLE_PINENTRY=1
+    export GOPATH=$BASE/programming/go
 
-    if [[ $(uname -r) = *"ARCH"* ]]; then
-        export GOPATH=$BASE/programming/go
-    else
-        export GOPATH=$BASE/Documents/programming/go
-    fi
+	# node verison manager
+	[ -f /usr/share/nvm/init-nvm.sh] && source /usr/share/nvm/init-nvm.sh
 fi
+
+# path for myself
+export PATH=$HOME/bin:$PATH
 
 # antigen
 source $DOTFILES/zsh/antigen/antigen.zsh
@@ -113,7 +113,8 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=25
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-export EDITOR='vim'
+# the true editor
+export EDITOR="vim"
 
 # go
 export PATH=$GOPATH/bin:$PATH
