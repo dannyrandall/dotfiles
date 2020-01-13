@@ -22,7 +22,7 @@ else ## linux specific things
     export GOPATH=$BASE/programming/go
 
 	# node verison manager
-	[ -f /usr/share/nvm/init-nvm.sh] && source /usr/share/nvm/init-nvm.sh
+	[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 fi
 
 # path for myself
@@ -147,3 +147,5 @@ eval $(thefuck --alias)
 export GPG_TTY=$(tty)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias f=fuck

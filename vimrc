@@ -247,7 +247,7 @@ set scrolloff=999
 set directory=/tmp
 
 " scrolling
-set mouse=a
+" set mouse=a
 set ttymouse=xterm2
 
 " disable button clicks
