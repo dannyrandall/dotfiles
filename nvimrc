@@ -22,6 +22,9 @@ if dein#load_state('/home/dannyrandall/.cache/dein')
   call dein#add('preservim/nerdtree')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('tpope/vim-surround')
+  call dein#add('jiangmiao/auto-pairs')
+  call dein#add('wlangstroth/vim-racket', { 'on_ft': 'racket' })
   call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release' })
   call dein#add('neoclide/coc-python', { 'on_ft': 'python' })
   call dein#add('neoclide/coc-tsserver', { 'on_ft': 'typescript' })
@@ -105,9 +108,9 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 set noexpandtab
 set autoindent
 filetype plugin indent on
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+set ts=4 sw=4 sts=4
+autocmd Filetype typescript setlocal ts=2 sw=2 sts=2 et
+autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 et
 
 """ theme """
 syntax on
@@ -115,6 +118,9 @@ colorscheme dracula
 highlight Normal ctermbg=None
 " show line numbers
 set number
+
+" change location of swap files
+set directory=/tmp
 
 """ key mapping """
 " remap escape
@@ -136,3 +142,7 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 " fzf
 nnoremap <C-f> :Rg<CR>
+
+""" go specific """
+" format and add missing imports
+autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')

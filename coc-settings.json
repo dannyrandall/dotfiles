@@ -1,23 +1,21 @@
 {
-  "diagnostic.enable": true,
   "suggest.maxCompleteItemCount": 10,
+  "suggest.enablePreview": true,
+  "diagnostic.checkCurrentLine": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+	  "go"
+  ],
+  "codeLens.enable": true,
   "languageserver": {
     "golang": {
       "command": "gopls",
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"]
-    },
-    "clangd": {
-      "command": "clangd",
-      "args": ["--background-index"],
-      "rootPatterns": [
-        "compile_flags.txt",
-        "compile_commands.json",
-        ".vim/",
-        ".git/",
-        ".hg/"
-      ],
-      "filetypes": ["c", "cpp", "objc", "objcpp"]
+      "filetypes": ["go"],
+	  "initializationOptions": {
+		  "usePlaceholders": true,
+		  "completeUnimported": false,
+	  }
     }
-  }
+  },
+  "coc.preferences.extensionUpdateCheck": "never"
 }
