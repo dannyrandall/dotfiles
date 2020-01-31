@@ -1,4 +1,5 @@
 {
+  "coc.preferences.extensionUpdateCheck": "never",
   "suggest.maxCompleteItemCount": 10,
   "suggest.enablePreview": true,
   "diagnostic.checkCurrentLine": true,
@@ -15,7 +16,21 @@
 		  "usePlaceholders": true,
 		  "completeUnimported": false,
 	  }
-    }
+    },
+	"terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {}
+    },
+	"julia": {
+		"filetypes": ["julia"],
+		"command": "/usr/bin/julia",
+		"args" : ["--startup-file=no", "--history-file=no", "-e",
+				"using LanguageServer;\n using Pkg;\n import StaticLint;\n import SymbolServer;\n env_path = dirname(Pkg.Types.Context().env.project_file);\n debug = false;\n server = LanguageServer.LanguageServerInstance(stdin, stdout, debug, env_path, \"\", Dict());\n server.runlinter = true;\n run(server);"]
+	}
   },
-  "coc.preferences.extensionUpdateCheck": "never"
+  "yaml.format.enable": true,
+  "yaml.schemas": {
+		"kubernetes": "/*.yaml"
+  }
 }

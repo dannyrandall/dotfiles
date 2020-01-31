@@ -25,12 +25,15 @@ if dein#load_state('$HOME/cache/dein')
   call dein#add('tpope/vim-surround')
   call dein#add('jiangmiao/auto-pairs')
   call dein#add('wlangstroth/vim-racket', { 'on_ft': 'racket' })
+  call dein#add('JuliaEditorSupport/julia-vim') " this one can't be lazy loaded
+  call dein#add('hashivim/vim-terraform', { 'on_ft': ['tf', 'tfvars', 'terraform'] })
   call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release' })
   call dein#add('neoclide/coc-python', { 'on_ft': 'python' })
   call dein#add('neoclide/coc-tsserver', { 'on_ft': 'typescript' })
   call dein#add('neoclide/coc-html', { 'on_ft': 'html' })
   call dein#add('neoclide/coc-css', { 'on_ft': ['css', 'scss'] })
   call dein#add('neoclide/coc-json', { 'on_ft': 'json' })
+  call dein#add('neoclide/coc-yaml', { 'on_ft': 'yaml' })
 
   " Required:
   call dein#end()
@@ -103,6 +106,12 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " close preview window when completion is done
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" fold based on lsp
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
+
+""" terraform """
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
 
 """ tabs """
 set noexpandtab
@@ -111,6 +120,12 @@ filetype plugin indent on
 set ts=4 sw=4 sts=4
 autocmd Filetype typescript setlocal ts=2 sw=2 sts=2 et
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 et
+
+""" folding """
+set foldmethod=syntax
+set foldnestmax=4
+" don't autofold at the beginning
+set foldlevelstart=99
 
 """ theme """
 syntax on
