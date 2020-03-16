@@ -24,7 +24,9 @@ if dein#load_state('$HOME/cache/dein')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('tpope/vim-surround')
   call dein#add('jiangmiao/auto-pairs')
-  call dein#add('wlangstroth/vim-racket', { 'on_ft': 'racket' })
+  " call dein#add('wlangstroth/vim-racket', { 'on_ft': 'racket' })
+  " call dein#add('elixir-editors/vim-elixir', { 'on_ft': ['.ex', '.exs', '.eex', '.leex'] })
+  call dein#add('elixir-editors/vim-elixir')
   call dein#add('JuliaEditorSupport/julia-vim') " this one can't be lazy loaded
   call dein#add('hashivim/vim-terraform', { 'on_ft': ['tf', 'tfvars', 'terraform'] })
   call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release' })
@@ -34,6 +36,7 @@ if dein#load_state('$HOME/cache/dein')
   call dein#add('neoclide/coc-css', { 'on_ft': ['css', 'scss'] })
   call dein#add('neoclide/coc-json', { 'on_ft': 'json' })
   call dein#add('neoclide/coc-yaml', { 'on_ft': 'yaml' })
+  call dein#add('amiralies/coc-elixir', { 'on_ft': ['elixir', 'eelixir'] })
 
   " Required:
   call dein#end()
