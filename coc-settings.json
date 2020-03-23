@@ -1,20 +1,21 @@
 {
-  "coc.preferences.extensionUpdateCheck": "never",
   "suggest.maxCompleteItemCount": 10,
   "suggest.enablePreview": true,
   "diagnostic.checkCurrentLine": true,
+  "codeLens.enable": true,
   "coc.preferences.formatOnSaveFiletypes": [
 	  "go"
   ],
-  "codeLens.enable": true,
   "languageserver": {
     "golang": {
       "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "rootPatterns": ["go.mod"],
+	  "disableWorkspaceFolders": true,
       "filetypes": ["go"],
 	  "initializationOptions": {
-		  "usePlaceholders": true,
-		  "completeUnimported": false,
+	      "usePlaceholders": true,
+	      "completeUnimported": true,
+		  "staticcheck": true
 	  }
     },
 	"terraform": {

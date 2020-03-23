@@ -1,56 +1,20 @@
-""" dein """
-if &compatible
-  set nocompatible
-endif
+call plug#begin('~/.vim/plugged')
+	Plug 'dracula/vim', { 'as': 'dracula' }
+	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	Plug 'junegunn/fzf.vim'
+	Plug 'preservim/nerdtree'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
+	Plug 'tpope/vim-surround'
+	Plug 'jiangmiao/auto-pairs'
+	Plug 'elixir-editors/vim-elixir'
+	" Plug 'JuliaEditorSupport/julia-vim'
+	Plug 'hashivim/vim-terraform', { 'for': ['tf', 'tfvars', 'terraform'] }
 
-" Required:
-set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
-
-" Required:
-if dein#load_state('$HOME/cache/dein')
-  call dein#begin('$HOME/.cache/dein')
-
-  " Let dein manage dein
-  " Required:
-  call dein#add('$HOME/.cache/dein/repos/github.com/Shougo/dein.vim')
-
-  """ plugins """
-  " Add or remove your plugins here like this:
-  call dein#add('dracula/vim', { 'name': 'dracula' })
-  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 }) 
-  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-  call dein#add('preservim/nerdtree')
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
-  call dein#add('tpope/vim-surround')
-  call dein#add('jiangmiao/auto-pairs')
-  " call dein#add('wlangstroth/vim-racket', { 'on_ft': 'racket' })
-  " call dein#add('elixir-editors/vim-elixir', { 'on_ft': ['.ex', '.exs', '.eex', '.leex'] })
-  call dein#add('elixir-editors/vim-elixir')
-  call dein#add('JuliaEditorSupport/julia-vim') " this one can't be lazy loaded
-  call dein#add('hashivim/vim-terraform', { 'on_ft': ['tf', 'tfvars', 'terraform'] })
-  call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release' })
-  call dein#add('neoclide/coc-python', { 'on_ft': 'python' })
-  call dein#add('neoclide/coc-tsserver', { 'on_ft': 'typescript' })
-  call dein#add('neoclide/coc-html', { 'on_ft': 'html' })
-  call dein#add('neoclide/coc-css', { 'on_ft': ['css', 'scss'] })
-  call dein#add('neoclide/coc-json', { 'on_ft': 'json' })
-  call dein#add('neoclide/coc-yaml', { 'on_ft': 'yaml' })
-  call dein#add('amiralies/coc-elixir', { 'on_ft': ['elixir', 'eelixir'] })
-
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
-	
-" Required:
-filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
+	" coc
+	Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': ':CocInstall coc-python coc-tsserver coc-html coc-css coc-json coc-yaml' }
+	" Plug 'amiralies/coc-elixir' ", { 'for': ['elixir', 'eelixir'] }
+call plug#end()
 
 """ nerdtree """
 " open nerdtree when vim starts up, if no files were given
@@ -84,26 +48,26 @@ set shortmess+=c
 set signcolumn=yes
 " helper function for below
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " function to show documentation
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	else
+		call CocAction('doHover')
+	endif
 endfunction
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -111,6 +75,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 " fold based on lsp
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
+" rename
+nmap <leader>rn <Plug>(coc-rename)
 
 """ terraform """
 let g:terraform_align=1
@@ -132,6 +98,7 @@ set foldlevelstart=99
 
 """ theme """
 syntax on
+syntax enable
 colorscheme dracula
 highlight Normal ctermbg=None
 " show line numbers

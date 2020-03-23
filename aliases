@@ -2,4 +2,5 @@ alias gin="go run *.go" #spin up go server
 alias gint="go test -v -bench=. -benchmem -cover"
 alias byuvpn="sudo openconnect --authgroup='BYU-Public-Internal' https://dc-vpn.byu.edu"
 alias vim="nvim"
+alias v="nvim"
 alias k="kubectl"
