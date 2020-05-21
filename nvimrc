@@ -74,8 +74,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 " fold based on lsp
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
-" rename
-nmap <leader>rn <Plug>(coc-rename)
 
 """ terraform """
 let g:terraform_align=1
@@ -124,6 +122,8 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+" rename
+nmap <silent> rn <Plug>(coc-rename)
 " fzf
 nnoremap <C-f> :Rg<CR>
 

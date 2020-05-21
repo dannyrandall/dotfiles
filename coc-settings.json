@@ -19,7 +19,21 @@
 		"infof",
 		"warnf",
 		"pflag",
-		"upsert"
+		"upsert",
+		"healthz",
+		"statsz",
+		"grpc",
+		"protobuf",
+		"avcli",
+		"oauth",
+		"slackcli",
+		"devs",
+		"cmds",
+		"resps",
+		"gonum",
+		"visca",
+		"cors",
+		"pcconfig",
 	],
 	// yaml
 	"yaml.format.enable": true,
@@ -38,6 +52,9 @@
 	"html.validate.styles": true,
 	"html.autoClosingTags": true,
 	"html.suggest.html5": true,
+	// css
+	"css.enable": true,
+	"scss.validate": true,
 	"languageserver": {
 		// go
 		"golang": {
