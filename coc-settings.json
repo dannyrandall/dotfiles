@@ -34,6 +34,10 @@
 		"visca",
 		"cors",
 		"pcconfig",
+		"autosize",
+		"postgres",
+		"sqlx",
+		"datepicker"
 	],
 	// yaml
 	"yaml.format.enable": true,
