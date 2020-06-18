@@ -113,8 +113,7 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=25
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# the true editor
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # go
 export PATH=$GOPATH/bin:$PATH
