@@ -54,6 +54,14 @@
 		"logz",
 		"gonic"
 	],
+	// golang
+	"go.checkForUpdates": "install",
+	"go.enable": true,
+	"go.goplsOptions": {
+		"usePlaceholders": true,
+		"completeUnimported": true,
+		"staticcheck": true
+	},
 	// yaml
 	"yaml.format.enable": true,
 	"yaml.schemas": {
@@ -75,22 +83,6 @@
 	"css.enable": true,
 	"scss.validate": true,
 	"languageserver": {
-		// go
-		"golang": {
-			"command": "gopls",
-			"rootPatterns": [
-				"go.mod"
-			],
-			"disableWorkspaceFolders": true,
-			"filetypes": [
-				"go"
-			],
-			"initializationOptions": {
-				"usePlaceholders": true,
-				"completeUnimported": true,
-				"staticcheck": true
-			}
-		},
 		// terraform
 		"terraform": {
 			"command": "terraform-lsp",

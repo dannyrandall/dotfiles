@@ -9,7 +9,7 @@ call plug#begin()
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'hashivim/vim-terraform', { 'for': ['tf', 'tfvars', 'terraform'] }
 	" coc
-	Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': ':CocInstall coc-python coc-tsserver coc-html coc-css coc-json coc-yaml coc-spell-checker' }
+	Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': ':CocInstall coc-go coc-python coc-tsserver coc-html coc-css coc-json coc-yaml coc-spell-checker' }
 call plug#end()
 
 """ nerdtree """
