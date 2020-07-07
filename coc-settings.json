@@ -49,6 +49,10 @@
 		"viscaservice",
 		"tmpl",
 		"DSP",
+		"couchdb",
+		"envs",
+		"logz",
+		"gonic"
 	],
 	// yaml
 	"yaml.format.enable": true,
