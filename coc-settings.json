@@ -10,6 +10,7 @@
 	"cSpell.maxNumberOfProblems": 10,
 	"cSpell.showStatus": false,
 	"cSpell.words": [
+		"avcontrol",
 		"kubernetes",
 		"statefulset",
 		"byuoitav",
@@ -52,7 +53,12 @@
 		"couchdb",
 		"envs",
 		"logz",
-		"gonic"
+		"gonic",
+		"mjpeg",
+		"mjpg",
+		"nolint",
+		"adcp",
+		"ulxd"
 	],
 	// golang
 	"go.checkForUpdates": "install",

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function gitt() { if [ -z "$1" ]; then
-		echo "no commit message supplied"
+	echo "no commit message supplied"
 	else
 		git add -v -A
 		git commit -m $1
@@ -56,13 +56,23 @@ function fixpitime {
     ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $uname@$1 'date && sudo ntpdate tick.byu.edu && date'
 }
 
-function spyglass {
-    origin=$(xdotool getwindowfocus)              # save current window focus
-    google-chrome-stable "http://$1.byu.edu:8888/"      # open new chrome tab
-    wid=$(xdotool search --desktop 0 --class "google-chrome" | tail -n1)
-    xdotool windowactivate --sync $wid          # change focus to chrome
-    xdotool windowactivate --sync $wid key F12  # open dev tools
+function removeDeviceFromMonitoring {
+   redis-cli -h shipwright-prd.xorre5.ng.0001.usw2.cache.amazonaws.com -p 6379 del $1
+   curl -X POST -H "Content-Type: application/json" -d "{\"query\":{\"bool\":{\"filter\":[{\"wildcard\":{\"deviceID\": \"$1\"}}]}}}" "http://north.byu.edu:9200/oit-static-av-devices-v3/_delete_by_query"
+}
 
-    sleep .6
-    xdotool windowactivate --sync $origin       # change focus back to origin
+function getTemp {
+   ssh pi@$1 "/opt/vc/bin/vcgencmd \"measure_temp\""
+}
+
+function kubedash {
+	#echo "Run\n\tkubectl proxy\n"
+	#echo "and open\n\n\thttp://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy\n"
+	#echo "Use this token for access:"
+	#kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
+
+	echo "Run\n\tkubectl proxy"
+	echo "and open\n\thttp://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy"
+	echo "Use this token for access:"
+	kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
 }
