@@ -58,7 +58,17 @@
 		"mjpg",
 		"nolint",
 		"adcp",
-		"ulxd"
+		"ulxd",
+		"atlona",
+		"uname",
+		"img",
+		"imgs",
+		"semver",
+		"errg",
+		"upgrader",
+		"upvote",
+		"unmute",
+		"sats"
 	],
 	// golang
 	"go.checkForUpdates": "install",
