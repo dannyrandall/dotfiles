@@ -15,7 +15,7 @@ function ghview() {
 	local user=$1
 	local repo=$2
 
-	git clone --depth 1 --single-branch git@$host:$user/$repo /tmp/view/$host/$user/$repo
+	git clone --depth 1 --single-branch --no-tags git@$host:$user/$repo /tmp/view/$host/$user/$repo
 	nvim /tmp/view/github.com/$user/$repo
 
 	rm -rf /tmp/view/$host/$user/$repo
