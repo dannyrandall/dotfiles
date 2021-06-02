@@ -68,7 +68,18 @@
 		"upgrader",
 		"upvote",
 		"unmute",
-		"sats"
+		"sats",
+		"rulesets",
+		"pico",
+		"picos",
+		"sats",
+		"smee",
+		"ansible",
+		"deps",
+		"vals",
+		"mget",
+		"maint",
+		"deref"
 	],
 	// golang
 	"go.checkForUpdates": "install",

@@ -3,3 +3,4 @@ alias byuvpn="sudo openconnect --authgroup='BYU-Public-Internal' https://dc-vpn.
 alias vim="nvim"
 alias v="nvim"
 alias k="kubectl"
+alias lol="cd /Applications/League\ of\ Legends.app/Contents/LoL && ./LeagueClient.app/Contents/MacOS/LeagueClient"

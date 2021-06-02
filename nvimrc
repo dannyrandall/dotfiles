@@ -95,11 +95,9 @@ syntax on
 syntax enable
 colorscheme dracula
 highlight Normal ctermbg=None
+
 " show line numbers
 set number
-
-" change location of swap files
-set directory=/tmp
 
 """ key mapping """
 " remap escape
@@ -127,3 +125,7 @@ nnoremap <C-f> :Rg<CR>
 """ go specific """
 " format and add missing imports
 autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+
+""" random stuff """
+" change location of swap files
+set directory=/tmp
