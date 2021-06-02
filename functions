@@ -1,12 +1,24 @@
 #!/usr/bin/env bash
 
-function gitt() { if [ -z "$1" ]; then
+function gitt() {
+	if [ -z "$1" ]; then
 	echo "no commit message supplied"
 	else
 		git add -v -A
 		git commit -m $1
 		git push
 	fi
+}
+
+function ghview() {
+	local host=github.com
+	local user=$1
+	local repo=$2
+
+	git clone --depth 1 --single-branch --no-tags git@$host:$user/$repo /tmp/view/$host/$user/$repo
+	nvim /tmp/view/github.com/$user/$repo
+
+	rm -rf /tmp/view/$host/$user/$repo
 }
 
 function extract {
