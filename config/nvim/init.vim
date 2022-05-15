@@ -8,7 +8,6 @@ call plug#begin()
 	Plug 'tpope/vim-surround'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'hashivim/vim-terraform', { 'for': ['tf', 'tfvars', 'terraform'] }
-	" coc
 	Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': ':CocInstall coc-go coc-python coc-tsserver coc-html coc-css coc-json coc-yaml coc-spell-checker' }
 call plug#end()
 
@@ -20,6 +19,9 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 " close nerdtree if it's the only thing left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" change split -> s, vsplit -> v to match coc list
+let NERDTreeMapOpenSplit = 's'
+let NERDTreeMapOpenVSplit = 'v'
 " set where the splits should go
 set splitbelow
 set splitright
@@ -41,7 +43,7 @@ set updatetime=300
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 " always show signcolumns
-set signcolumn=yes
+set signcolumn=number
 " helper function for below
 function! s:check_back_space() abort
 	let col = col('.') - 1
@@ -59,10 +61,12 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " function to show documentation
 function! s:show_documentation()
-	if (index(['vim','help'], &filetype) >= 0)
-		execute 'h '.expand('<cword>')
+	if (index(['vim', 'help'], &filetype) >= 0)
+		execute 'h ' . expand('<cword>')
+	elseif (coc#rpc#ready())
+		call CocActionAsync('doHover')
 	else
-		call CocAction('doHover')
+		execute '!' . &keywordprg . " " . expand('<cword>')
 	endif
 endfunction
 " Highlight symbol under cursor on CursorHold
@@ -71,6 +75,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 " fold based on lsp
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
+" stop my cursor disappearing on ctrl+c
+let g:coc_disable_transparent_cursor = 1
 
 """ terraform """
 let g:terraform_align=1
@@ -117,6 +123,13 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+" show file outline
+nnoremap <silent><nowait> <space>o :<C-u>CocList --normal outline<cr>
+" show diagnostics
+nnoremap <silent><nowait> <space>d :<C-u>CocDiagnostics<cr>
+nnoremap <silent><nowait> <space>ad :<C-u>CocList --normal --no-quit diagnostics<cr>
+" show commands
+nnoremap <silent><nowait> <space>c :<C-u>CocList --normal commands<cr>
 " rename
 nmap <silent> rn <Plug>(coc-rename)
 " fzf
@@ -129,3 +142,5 @@ autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeIm
 """ random stuff """
 " change location of swap files
 set directory=/tmp
+" allow backspace over everything
+set backspace=indent,eol,start

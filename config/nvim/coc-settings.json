@@ -2,14 +2,28 @@
 	"suggest.maxCompleteItemCount": 10,
 	"suggest.enablePreview": true,
 	"diagnostic.checkCurrentLine": true,
+	"diagnostic.maxWindowHeight": 5,
 	"codeLens.enable": true,
+	"list.height": 10,
+	"list.insertMappings": {},
+	"list.normalMappings": {
+		"v": "action:vsplit",
+		"s": "action:split"
+	},
 	"coc.preferences.formatOnSaveFiletypes": [
 		"*"
 	],
 	// spell checker
-	"cSpell.maxNumberOfProblems": 10,
+	"cSpell.maxNumberOfProblems": 3,
 	"cSpell.showStatus": false,
+	"cSpell.minWordLength": 5,
+	"cSpell.allowCompoundWords": true,
+	"cSpell.spellCheckDelayMs": 10000,
+	"cSpell.flagWords": [
+		"hte" // the
+	],
 	"cSpell.words": [
+		"fname",
 		"avcontrol",
 		"kubernetes",
 		"statefulset",
@@ -72,18 +86,19 @@
 		"rulesets",
 		"pico",
 		"picos",
-		"sats",
 		"smee",
 		"ansible",
 		"deps",
 		"vals",
 		"mget",
 		"maint",
-		"deref"
+		"deref",
+		"bemol"
 	],
 	// golang
 	"go.checkForUpdates": "install",
 	"go.enable": true,
+	"go.goplsUseDaemon": false,
 	"go.goplsOptions": {
 		"usePlaceholders": true,
 		"completeUnimported": true,
@@ -108,16 +123,5 @@
 	"html.suggest.html5": true,
 	// css
 	"css.enable": true,
-	"scss.validate": true,
-	"languageserver": {
-		// terraform
-		"terraform": {
-			"command": "terraform-lsp",
-			"filetypes": [
-				"terraform",
-				"tf"
-			],
-			"initializationOptions": {}
-		}
-	}
+	"scss.validate": true
 }

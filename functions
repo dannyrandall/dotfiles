@@ -1,14 +1,4 @@
-#!/usr/bin/env bash
-
-function gitt() {
-	if [ -z "$1" ]; then
-	echo "no commit message supplied"
-	else
-		git add -v -A
-		git commit -m $1
-		git push
-	fi
-}
+#!/usr/bin/env zsh
 
 function ghview() {
 	local host=github.com
@@ -51,37 +41,4 @@ function extract {
 		echo "$1 - file does not exist"
 	fi
 fi
-}
-
-function board {
-    uname=pi
-    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $uname@$1
-}
-
-function sink {
-    uname=pi
-    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $uname@$1 'sudo reboot'
-}
-
-function fixpitime {
-    uname=pi
-    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $uname@$1 'date && sudo ntpdate tick.byu.edu && date'
-}
-
-function removeDeviceFromMonitoring {
-   redis-cli -h shipwright-prd.xorre5.ng.0001.usw2.cache.amazonaws.com -p 6379 del $1
-   curl -X POST -H "Content-Type: application/json" -d "{\"query\":{\"bool\":{\"filter\":[{\"wildcard\":{\"deviceID\": \"$1\"}}]}}}" "http://north.byu.edu:9200/oit-static-av-devices-v3/_delete_by_query"
-}
-
-function getTemp {
-   ssh pi@$1 "/opt/vc/bin/vcgencmd \"measure_temp\""
-}
-
-function kubedash {
-	echo "Open http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy"
-	echo "Use this token for access:"
-	kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
-	echo "\n=============================="
-	echo "Starting k8s proxy"
-	kubectl proxy
 }
