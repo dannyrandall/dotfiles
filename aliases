@@ -1,4 +1,7 @@
-alias gin="go run *.go" #spin up go server
+alias gin="go run *.go"
 alias vim="nvim"
 alias v="nvim"
+
 alias k="kubectl"
+alias c='copilot'
+alias cl='copilot-local'
