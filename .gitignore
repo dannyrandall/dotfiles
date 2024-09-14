@@ -1,5 +1,7 @@
 **/.DS_Store
 
 # both of these are regularly modified by karabiner
-config/karabiner/automatic_backups
-config/karabiner/karabiner.json
+/config/karabiner/automatic_backups
+/config/karabiner/karabiner.json
+
+/amzn-zshrc

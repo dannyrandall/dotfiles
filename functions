@@ -42,3 +42,8 @@ function extract {
 		fi
 	fi
 }
+
+function togit() {
+	local dir=$(findup .git | xargs)
+	cd $dir
+}
