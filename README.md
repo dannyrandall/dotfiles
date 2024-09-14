@@ -10,10 +10,6 @@
 	```sh
 	ln -s $HOME/dotfiles/config $HOME/.config
 	```
-1. symlink `zsh` config:
-	```sh
-	ln -s $HOME/dotfiles/zshrc $HOME/.zshrc
-	```
 1. install [karabiner-elements](https://karabiner-elements.pqrs.org)
 	- Enable 'Danny caps layer' rules under 'Complex modifications'
 1. setup [dracula terminal.app profile](https://draculatheme.com/terminal)
@@ -25,3 +21,7 @@
 1. install [tpm](https://github.com/tmux-plugins/tpm)
 1. install [vim-plug](https://github.com/junegunn/vim-plug)
 	- install neovim plugins by opening neovim and running `:PlugInstall`
+1. symlink `zsh` config:
+	```sh
+	ln -s $HOME/dotfiles/zshrc $HOME/.zshrc
+	```
