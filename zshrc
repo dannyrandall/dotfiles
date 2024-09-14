@@ -5,6 +5,10 @@ export EDITOR="nvim"
 export PATH=$PATH:$HOME/bin # manually installed
 export PATH=$PATH:$HOME/go/bin # golang
 
+if [[ $OSTYPE == darwin* ]]; then # mac stuff
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 eval "$(mise activate zsh)"
 
 ### antigen ###
