@@ -3,6 +3,7 @@ export TERM="xterm-256color"
 export EDITOR="nvim"
 
 export PATH=$PATH:$HOME/bin # manually installed
+export PATH=$PATH:$HOME/.local/bin # should probably use instead of $HOME/bin
 export PATH=$PATH:$HOME/go/bin # golang
 . "$HOME/.cargo/env" # rust
 
