@@ -11,9 +11,6 @@ if [[ $OSTYPE == darwin* ]]; then # mac stuff
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-eval "$(mise activate zsh)"
-source ~/.local/share/mise/completions.zsh
-
 ### antigen ###
 source $HOME/.antigen.zsh
 
@@ -21,7 +18,6 @@ antigen use oh-my-zsh
 
 antigen bundle wd
 antigen bundle git
-antigen bundle mise
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
@@ -64,6 +60,9 @@ SPACESHIP_HOST_PREFIX="@"
 HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=25
+
+eval "$(mise activate zsh)"
+source <(mise completion zsh)
 
 [ -f $DOTFILES/aliases ] && source $DOTFILES/aliases
 [ -f $DOTFILES/functions ] && source $DOTFILES/functions
