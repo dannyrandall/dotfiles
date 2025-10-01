@@ -1,5 +1,14 @@
 #!/usr/bin/env zsh
 
+function cross_platform_open() {
+	if [[ $OSTYPE == darwin* ]]; then # mac
+		echo "Opening: ${1}"
+		open "${1}"
+	else
+		echo "Paste this URL into your browser: ${1}"
+	fi
+}
+
 function ghview() {
 	local host=github.com
 	local user=$1

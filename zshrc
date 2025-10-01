@@ -4,12 +4,14 @@ export EDITOR="nvim"
 
 export PATH=$PATH:$HOME/bin # manually installed
 export PATH=$PATH:$HOME/go/bin # golang
+. "$HOME/.cargo/env" # rust
 
 if [[ $OSTYPE == darwin* ]]; then # mac stuff
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 eval "$(mise activate zsh)"
+source ~/.local/share/mise/completions.zsh
 
 ### antigen ###
 source $HOME/.antigen.zsh
@@ -18,6 +20,7 @@ antigen use oh-my-zsh
 
 antigen bundle wd
 antigen bundle git
+antigen bundle mise
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
@@ -64,3 +67,5 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=25
 [ -f $DOTFILES/aliases ] && source $DOTFILES/aliases
 [ -f $DOTFILES/functions ] && source $DOTFILES/functions
 [ -f $DOTFILES/amzn-zshrc ] && source $DOTFILES/amzn-zshrc
+
+autoload -Uz compinit && compinit
