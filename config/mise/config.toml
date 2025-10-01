@@ -1,4 +1,8 @@
 [tools]
 python = ["3.12", "3.11", "3.10", "3.9", "3.8"]
 go = "latest"
-node = "18"
+node = "lts"
+uv = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = []
