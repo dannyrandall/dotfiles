@@ -9,6 +9,8 @@ export PATH=$PATH:$HOME/go/bin # golang
 
 if [[ $OSTYPE == darwin* ]]; then # mac stuff
   eval "$(/opt/homebrew/bin/brew shellenv)"
+else # linux stuf
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 ### antigen ###
