@@ -6,3 +6,6 @@
 
 /amzn-zshrc
 /config/lnav/
+config/nvim/lazy-lock.json
+config/nvim/lazyvim.json
+config/tmux/plugins/
