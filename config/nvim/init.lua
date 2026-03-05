@@ -63,7 +63,22 @@ vim.keymap.set("n", "<C-p>", function()
 		vim.diagnostic.setloclist()
 	end
 end)
-vim.keymap.set("n", "<C-g>", "<Cmd>Neotree git_status toggle<CR>")
+vim.keymap.set("n", "<C-g>", function()
+	local lib = require("diffview.lib")
+	if lib.get_current_view() then
+		vim.cmd("DiffviewClose")
+	else
+		vim.cmd("DiffviewOpen")
+	end
+end)
+vim.keymap.set("n", "<C-y>", function()
+	local lib = require("diffview.lib")
+	if lib.get_current_view() then
+		vim.cmd("DiffviewClose")
+	else
+		vim.cmd("DiffviewFileHistory %")
+	end
+end)
 vim.keymap.set("", "<C-f>", "<Cmd>Telescope live_grep<CR>")
 
 -- lsp keymaps (matching old coc bindings)
@@ -71,7 +86,7 @@ vim.keymap.set("n", "gr", vim.lsp.buf.references, { silent = true })
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { silent = true })
 vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, { silent = true })
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { silent = true })
-vim.keymap.set("n", "rn", vim.lsp.buf.rename, { silent = true })
+vim.keymap.set("n", "<space>r", vim.lsp.buf.rename, { silent = true })
 vim.keymap.set("n", "gu", "<C-o>", { silent = true })
 
 -- splits with direction

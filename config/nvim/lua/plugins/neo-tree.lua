@@ -25,7 +25,7 @@ return {
         },
       },
 	  source_selector = {
-		  statusline = true,
+		  statusline = false,
 	  }
     },
     init = function()
