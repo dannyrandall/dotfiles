@@ -99,7 +99,72 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition, { silent = true })
 vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, { silent = true })
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { silent = true })
 vim.keymap.set("n", "<space>r", vim.lsp.buf.rename, { silent = true })
-vim.keymap.set("n", "gu", "<C-o>", { silent = true })
+vim.keymap.set("n", "gu", "<Cmd>execute 'normal!' \"\\<C-o>\"<CR>", { silent = true })
+-- open file URL on remote (code.amazon.com / github)
+local function open_git_url(range)
+	local file = vim.fn.expand("%:p")
+	local line = vim.fn.line(".")
+	local line_anchor
+	if range then
+		local start_line = vim.fn.line("'<")
+		local end_line = vim.fn.line("'>")
+		line_anchor = "#L" .. start_line .. "-L" .. end_line
+	else
+		line_anchor = "#L" .. line
+	end
+	local dir = vim.fn.shellescape(vim.fn.expand("%:p:h"))
+	local remote = vim.fn.system("git -C " .. dir .. " remote get-url origin 2>/dev/null"):gsub("%s+$", "")
+	if remote == "" then return vim.notify("No git remote found", vim.log.levels.WARN) end
+
+	local rel = vim.fn.system("git -C " .. dir .. " ls-files --full-name " .. vim.fn.shellescape(file)):gsub("%s+$", "")
+
+	-- get upstream ref (e.g. "share/feat/user-skills") and extract remote name + branch
+	local upstream = vim.fn.system("git -C " .. dir .. " rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null"):gsub("%s+$", "")
+	local remote_name, branch
+	if upstream ~= "" then
+		remote_name = upstream:match("^([^/]+)/")
+		branch = upstream:match("^[^/]+/(.+)$")
+	end
+	if not remote_name then
+		remote_name = "origin"
+		branch = vim.fn.system("git -C " .. dir .. " rev-parse --abbrev-ref HEAD 2>/dev/null"):gsub("%s+$", "")
+	end
+
+	-- get the actual remote URL for the upstream remote
+	local upstream_remote = vim.fn.system("git -C " .. dir .. " remote get-url " .. remote_name .. " 2>/dev/null"):gsub("%s+$", "")
+	if upstream_remote ~= "" then remote = upstream_remote end
+
+	local url
+	if remote:find("git.amazon.com") then
+		local repo = remote:match("/pkg/([^/]+)")
+		-- extract suffix after /pkg/RepoName (e.g. "/share/dnrnd")
+		local suffix = remote:match("/pkg/[^/]+(/.+)$") or ""
+		url = ("https://code.amazon.com/packages/%s/blobs%s/%s/--/%s%s"):format(repo, suffix, branch, rel, line_anchor)
+	elseif remote:find("github.com") then
+		local path = remote:gsub("^git@github%.com:", ""):gsub("^https?://github%.com/", ""):gsub("%.git$", "")
+		url = ("https://github.com/%s/blob/%s/%s%s"):format(path, branch, rel, line_anchor)
+	else
+		return vim.notify("Unknown remote: " .. remote, vim.log.levels.WARN)
+	end
+
+	local buf = vim.api.nvim_create_buf(false, true)
+	vim.api.nvim_buf_set_lines(buf, 0, -1, false, { url })
+	local width = #url + 2
+	local win = vim.api.nvim_open_win(buf, true, {
+		relative = "cursor", row = 1, col = 0,
+		width = width, height = 1,
+		style = "minimal", border = "rounded",
+	})
+	vim.bo[buf].modifiable = false
+	vim.keymap.set("n", "<Esc>", function() vim.api.nvim_win_close(win, true) end, { buffer = buf })
+	vim.keymap.set("n", "q", function() vim.api.nvim_win_close(win, true) end, { buffer = buf })
+	vim.keymap.set("n", "<C-o>", function() vim.api.nvim_win_close(win, true) end, { buffer = buf })
+end
+vim.keymap.set("n", "<C-o>", function() open_git_url(false) end)
+vim.keymap.set("v", "<C-o>", function()
+	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "x", false)
+	open_git_url(true)
+end)
 
 -- splits with direction
 vim.keymap.set("n", "sh", "<Cmd>set nosplitright | vsplit | set splitright<CR>", { silent = true })
