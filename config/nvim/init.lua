@@ -54,7 +54,15 @@ vim.keymap.set("n", "<C-J>", "<C-W><C-J>", {noremap = true})
 vim.keymap.set("n", "<C-K>", "<C-W><C-K>", {noremap = true})
 vim.keymap.set("n", "<C-L>", "<C-W><C-L>", {noremap = true})
 
-vim.keymap.set("", "<C-t>", "<Cmd>Neotree toggle<CR>")
+vim.keymap.set("", "<C-t>", function()
+	local lib = require("diffview.lib")
+	if lib.get_current_view() then
+		vim.cmd("DiffviewClose")
+		vim.cmd("Neotree show")
+	else
+		vim.cmd("Neotree toggle")
+	end
+end)
 vim.keymap.set("n", "<C-p>", function()
 	local winid = vim.fn.getloclist(0, { winid = 0 }).winid
 	if winid ~= 0 then
@@ -63,12 +71,16 @@ vim.keymap.set("n", "<C-p>", function()
 		vim.diagnostic.setloclist()
 	end
 end)
+-- diffview: open / focus file tree / close
 vim.keymap.set("n", "<C-g>", function()
 	local lib = require("diffview.lib")
-	if lib.get_current_view() then
+	local view = lib.get_current_view()
+	if not view then
+		vim.cmd("DiffviewOpen")
+	elseif vim.bo.filetype == "DiffviewFiles" then
 		vim.cmd("DiffviewClose")
 	else
-		vim.cmd("DiffviewOpen")
+		vim.cmd("DiffviewFocusFiles")
 	end
 end)
 vim.keymap.set("n", "<C-y>", function()
