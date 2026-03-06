@@ -1,5 +1,8 @@
 require("config.lazy")
 
+-- use system clipboard
+vim.opt.clipboard = "unnamedplus"
+
 -- tabs
 vim.opt.expandtab = false
 vim.opt.autoindent = true
@@ -147,18 +150,9 @@ local function open_git_url(range)
 		return vim.notify("Unknown remote: " .. remote, vim.log.levels.WARN)
 	end
 
-	local buf = vim.api.nvim_create_buf(false, true)
-	vim.api.nvim_buf_set_lines(buf, 0, -1, false, { url })
-	local width = #url + 2
-	local win = vim.api.nvim_open_win(buf, true, {
-		relative = "cursor", row = 1, col = 0,
-		width = width, height = 1,
-		style = "minimal", border = "rounded",
-	})
-	vim.bo[buf].modifiable = false
-	vim.keymap.set("n", "<Esc>", function() vim.api.nvim_win_close(win, true) end, { buffer = buf })
-	vim.keymap.set("n", "q", function() vim.api.nvim_win_close(win, true) end, { buffer = buf })
-	vim.keymap.set("n", "<C-o>", function() vim.api.nvim_win_close(win, true) end, { buffer = buf })
+	-- copy URL to system clipboard via OSC 52
+	vim.fn.setreg("+", url)
+	vim.notify("Copied: " .. url, vim.log.levels.INFO)
 end
 vim.keymap.set("n", "<C-o>", function() open_git_url(false) end)
 vim.keymap.set("v", "<C-o>", function()
