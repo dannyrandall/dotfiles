@@ -56,3 +56,23 @@ function togit() {
 	local dir=$(findup .git | xargs)
 	cd $dir
 }
+
+function pfwd() {
+	if [ $# -lt 2 ]; then
+		echo "Usage: pfwd <host> <local_port> [remote_port]"
+		return 1
+	fi
+	local host=$1
+	local local_port=$2
+	local remote_port=${3:-$local_port}
+	echo "Forwarding localhost:$local_port -> $host:$remote_port"
+	ssh -N -L ${local_port}:localhost:${remote_port} $host
+}
+
+function grab() {
+	if [ $# -lt 2 ]; then
+		echo "Usage: grab <host> <remote_path>"
+		return 1
+	fi
+	scp -r ${1}:${2} .
+}
