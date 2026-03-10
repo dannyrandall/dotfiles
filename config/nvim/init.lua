@@ -51,6 +51,9 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- diagnostic float with J (toggle)
+vim.keymap.set("n", "J", vim.diagnostic.open_float)
+
 -- easier window movement
 vim.keymap.set("n", "<C-H>", "<C-W><C-H>", {noremap = true})
 vim.keymap.set("n", "<C-J>", "<C-W><C-J>", {noremap = true})
@@ -94,7 +97,7 @@ vim.keymap.set("n", "<C-y>", function()
 		vim.cmd("DiffviewFileHistory %")
 	end
 end)
-vim.keymap.set("", "<C-f>", "<Cmd>Telescope live_grep<CR>")
+vim.keymap.set("n", "<C-f>", "<Cmd>Telescope live_grep<CR>")
 
 -- lsp keymaps (matching old coc bindings)
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { silent = true })

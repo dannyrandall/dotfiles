@@ -12,6 +12,10 @@ return {
 					vim.cmd("edit " .. vim.fn.fnameescape(file))
 					vim.api.nvim_win_set_cursor(0, { line, col - 1 })
 				end },
+				{ "n", "<C-f>", "<Cmd>Telescope live_grep<CR>" },
+			},
+			file_panel = {
+				{ "n", "<C-f>", "<Cmd>Telescope live_grep<CR>" },
 			},
 		},
 	},
