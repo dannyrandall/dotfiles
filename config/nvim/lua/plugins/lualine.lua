@@ -8,5 +8,10 @@ return {
 				statusline = { "neo-tree", "DiffviewFiles", "DiffviewFileHistory" },
 			},
 		},
+		sections = {
+			lualine_c = {
+				{ "filename", path = 1 },
+			},
+		},
 	},
 }

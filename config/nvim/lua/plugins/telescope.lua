@@ -29,10 +29,9 @@ local function toggle_hidden(prompt_bufnr)
 	end)
 end
 
-local state = require("telescope.state")
-local action_state = require("telescope.actions.state")
-
-local slow_scroll = function(prompt_bufnr, direction)
+local function slow_scroll(prompt_bufnr, direction)
+	local state = require("telescope.state")
+	local action_state = require("telescope.actions.state")
 	local previewer = action_state.get_current_picker(prompt_bufnr).previewer
 	local status = state.get_status(prompt_bufnr)
 	if type(previewer) ~= "table" or previewer.scroll_fn == nil or status.preview_win == nil then
@@ -46,6 +45,7 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	opts = {
 		defaults = {
+			file_ignore_patterns = { "^build/", "/build/" },
 			mappings = {
 				i = {
 					["<C-f>"] = "close",

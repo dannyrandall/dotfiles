@@ -1,4 +1,5 @@
 require("config.lazy")
+require("config.code-workspace")
 
 -- use system clipboard
 vim.opt.clipboard = "unnamedplus"
@@ -32,6 +33,7 @@ vim.opt.splitright = true
 
 -- show line numbers
 vim.opt.number = true
+vim.opt.signcolumn = "yes"
 
 -- lsp floating window borders
 vim.diagnostic.config({ float = { border = "rounded" } })
@@ -40,6 +42,13 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { 
 -- remap escape
 vim.keymap.set("v", "fd", "<Esc>", { noremap = true })
 vim.keymap.set("i", "fd", "<Esc>", { noremap = true })
+
+-- K: only hover via LSP, no man page fallback
+vim.keymap.set("n", "K", function()
+	if #vim.lsp.get_clients({ bufnr = 0 }) > 0 then
+		vim.lsp.buf.hover()
+	end
+end)
 
 -- close hover float with K
 vim.api.nvim_create_autocmd("FileType", {
@@ -64,19 +73,12 @@ vim.keymap.set("", "<C-t>", function()
 	local lib = require("diffview.lib")
 	if lib.get_current_view() then
 		vim.cmd("DiffviewClose")
-		vim.cmd("Neotree show")
+		vim.cmd("Neotree show reveal")
 	else
-		vim.cmd("Neotree toggle")
+		vim.cmd("Neotree toggle reveal")
 	end
 end)
-vim.keymap.set("n", "<C-p>", function()
-	local winid = vim.fn.getloclist(0, { winid = 0 }).winid
-	if winid ~= 0 then
-		vim.cmd("lclose")
-	else
-		vim.diagnostic.setloclist()
-	end
-end)
+vim.keymap.set("n", "<C-p>", "<Cmd>Trouble diagnostics toggle focus=true<CR>")
 -- diffview: open / focus file tree / close
 vim.keymap.set("n", "<C-g>", function()
 	local lib = require("diffview.lib")
@@ -100,10 +102,10 @@ end)
 vim.keymap.set("n", "<C-f>", "<Cmd>Telescope live_grep<CR>")
 
 -- lsp keymaps (matching old coc bindings)
-vim.keymap.set("n", "gr", vim.lsp.buf.references, { silent = true })
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { silent = true })
-vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, { silent = true })
-vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { silent = true })
+vim.keymap.set("n", "gr", "<Cmd>Telescope lsp_references<CR>", { silent = true })
+vim.keymap.set("n", "gd", "<Cmd>Telescope lsp_definitions<CR>", { silent = true })
+vim.keymap.set("n", "gy", "<Cmd>Telescope lsp_type_definitions<CR>", { silent = true })
+vim.keymap.set("n", "gi", "<Cmd>Telescope lsp_implementations<CR>", { silent = true })
 vim.keymap.set("n", "<space>r", vim.lsp.buf.rename, { silent = true })
 vim.keymap.set("n", "gu", "<Cmd>execute 'normal!' \"\\<C-o>\"<CR>", { silent = true })
 -- open file URL on remote (code.amazon.com / github)
