@@ -13,6 +13,7 @@ return {
       enable_diagnostics = true,
       filesystem = {
         group_empty_dirs = true,
+        follow_current_file = { enabled = true },
       },
       open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
       window = {

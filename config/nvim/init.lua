@@ -4,6 +4,12 @@ require("config.code-workspace")
 -- use system clipboard
 vim.opt.clipboard = "unnamedplus"
 
+-- auto-reload files changed on disk
+vim.opt.autoread = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+	command = "silent! checktime",
+})
+
 -- tabs
 vim.opt.expandtab = false
 vim.opt.autoindent = true
@@ -99,7 +105,17 @@ vim.keymap.set("n", "<C-y>", function()
 		vim.cmd("DiffviewFileHistory %")
 	end
 end)
-vim.keymap.set("n", "<C-f>", "<Cmd>Telescope live_grep<CR>")
+vim.keymap.set("n", "<C-f>", function()
+	local state = require("telescope.state")
+	local cached = state.get_global_key("cached_pickers") or {}
+	for _, picker in ipairs(cached) do
+		if picker.prompt_title == "Live Grep" then
+			require("telescope.builtin").resume({ cache_index = _ })
+			return
+		end
+	end
+	require("telescope.builtin").live_grep()
+end)
 
 -- lsp keymaps (matching old coc bindings)
 vim.keymap.set("n", "gr", "<Cmd>Telescope lsp_references<CR>", { silent = true })

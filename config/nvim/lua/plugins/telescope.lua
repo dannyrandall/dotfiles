@@ -45,7 +45,7 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	opts = {
 		defaults = {
-			file_ignore_patterns = { "^build/", "/build/" },
+			file_ignore_patterns = { "^build/", "/build/", "^env/", "/env/", "build%.log", "^release%-info/", "/release%-info/", "^logs/", "/logs/" },
 			mappings = {
 				i = {
 					["<C-f>"] = "close",
