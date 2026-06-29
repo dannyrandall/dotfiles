@@ -11,6 +11,7 @@ return {
 		sections = {
 			lualine_c = {
 				{ "filename", path = 1 },
+				{ function() return vim.b.gitsigns_blame_line or "" end, icon = "" },
 			},
 		},
 	},

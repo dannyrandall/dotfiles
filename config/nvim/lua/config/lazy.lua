@@ -32,4 +32,6 @@ require("lazy").setup({
   install = { colorscheme = { "dracula" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
+  -- only install tagged releases, not every commit
+  defaults = { version = "*" },
 })

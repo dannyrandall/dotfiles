@@ -33,6 +33,13 @@ vim.opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
 vim.opt.foldnestmax = 4
 vim.opt.foldlevelstart = 99
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+	end,
+})
+
 -- splits
 vim.opt.splitbelow = true
 vim.opt.splitright = true

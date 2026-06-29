@@ -8,7 +8,7 @@ return {
 		vim.lsp.config("*", {
 			capabilities = require("cmp_nvim_lsp").default_capabilities(),
 		})
-		vim.lsp.enable({ "ty", "jsonls" })
+		vim.lsp.enable({ "ty", "jsonls", "marksman" })
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			callback = function()
 				vim.lsp.buf.format()
