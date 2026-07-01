@@ -1,13 +1,29 @@
 return {
-  -- add dracula
   {
-	"Mofiqul/dracula.nvim",
+	"catppuccin/nvim",
+	name = "catppuccin",
 	lazy = false,
 	priority = 1000,
 	config = function()
-		vim.cmd([[colorscheme dracula]])
-		vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#bd93f9" })
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#21222c" })
+		require("catppuccin").setup({
+			flavour = "auto",
+			background = {
+				light = "latte",
+				dark = "macchiato",
+			},
+		})
+		vim.cmd([[colorscheme catppuccin]])
 	end
-  }
+  },
+  {
+	"f-person/auto-dark-mode.nvim",
+	opts = {
+		set_dark_mode = function()
+			vim.opt.background = "dark"
+		end,
+		set_light_mode = function()
+			vim.opt.background = "light"
+		end,
+	},
+  },
 }

@@ -29,9 +29,9 @@ require("lazy").setup({
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "dracula" } },
+  install = { colorscheme = { "catppuccin" } },
   -- automatically check for plugin updates
-  checker = { enabled = true },
+  checker = { enabled = true, frequency = 86400 },
   -- only install tagged releases, not every commit
   defaults = { version = "*" },
 })

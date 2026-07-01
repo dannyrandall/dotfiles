@@ -1,5 +1,4 @@
 require("config.lazy")
-require("config.code-workspace")
 
 -- use system clipboard
 vim.opt.clipboard = "unnamedplus"
@@ -50,7 +49,6 @@ vim.opt.signcolumn = "yes"
 
 -- lsp floating window borders
 vim.diagnostic.config({ float = { border = "rounded" } })
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded", pad_top = 1, pad_bottom = 1 })
 
 -- remap escape
 vim.keymap.set("v", "fd", "<Esc>", { noremap = true })
@@ -59,7 +57,7 @@ vim.keymap.set("i", "fd", "<Esc>", { noremap = true })
 -- K: only hover via LSP, no man page fallback
 vim.keymap.set("n", "K", function()
 	if #vim.lsp.get_clients({ bufnr = 0 }) > 0 then
-		vim.lsp.buf.hover()
+		vim.lsp.buf.hover({ border = "rounded" })
 	end
 end)
 
