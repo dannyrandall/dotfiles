@@ -9,7 +9,7 @@ return {
 			flavour = "auto",
 			background = {
 				light = "latte",
-				dark = "macchiato",
+				dark = "mocha",
 			},
 		})
 		vim.cmd([[colorscheme catppuccin]])
