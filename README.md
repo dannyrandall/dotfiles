@@ -16,10 +16,14 @@
 1. setup [catppuccin iterm2 profile](https://github.com/catppuccin/iterm)
 	- Update font to Fira Code and font size to 14
 1. install [vscode](https://code.visualstudio.com/)
-1. install [neovim](https://neovim.io/)
-1. install [mise](https://github.com/jdx/mise)
-1. install [antigen](https://github.com/zsh-users/antigen)
-1. install [tpack](https://github.com/tmuxpack/tpack)
+1. install cli tools with [brew](https://brew.sh): [neovim](https://neovim.io/), [tpack](https://github.com/tmuxpack/tpack), [mise](https://github.com/jdx/mise), [tmux](https://github.com/tmux/tmux), [tree-sitter-cli](https://github.com/tree-sitter/tree-sitter)
+	```sh
+	brew install neovim tpack mise tmux tree-sitter-cli
+	```
+1. install [antigen](https://github.com/zsh-users/antigen) to `$HOME/.antigen.zsh` (where `zshrc` sources it):
+	```sh
+	curl -L git.io/antigen > $HOME/.antigen.zsh
+	```
 1. symlink `zsh` config:
 	```sh
 	ln -s $HOME/dotfiles/zshrc $HOME/.zshrc
