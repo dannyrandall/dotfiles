@@ -1,7 +1,7 @@
 [tools]
 python = ["3.12", "3.11", "3.10", "3.9", "3.8"]
 go = "latest"
-node = "lts"
+node = "22"
 uv = "latest"
 
 [settings]
