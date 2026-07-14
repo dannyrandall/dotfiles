@@ -6,6 +6,7 @@
 
 /amzn-zshrc
 /config/lnav/
+/config/go/telemetry/
 config/nvim/lazy-lock.json
 config/nvim/lazyvim.json
 config/tmux/plugins/

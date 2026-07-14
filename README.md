@@ -18,7 +18,7 @@
 1. install [vscode](https://code.visualstudio.com/)
 1. install cli tools with [brew](https://brew.sh): [neovim](https://neovim.io/), [tpack](https://github.com/tmuxpack/tpack), [mise](https://github.com/jdx/mise), [tmux](https://github.com/tmux/tmux), [tree-sitter-cli](https://github.com/tree-sitter/tree-sitter)
 	```sh
-	brew install neovim tpack mise tmux tree-sitter-cli
+	brew install neovim tmuxpack/tpack/tpack mise tmux tree-sitter-cli
 	```
 1. install [antigen](https://github.com/zsh-users/antigen) to `$HOME/.antigen.zsh` (where `zshrc` sources it):
 	```sh

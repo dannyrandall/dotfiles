@@ -1,4 +1,5 @@
 alias gin="go run *.go"
 alias vim="nvim"
-alias k="kubectl"
-alias kiro="kiro-wrapper"
+alias kube="kubectl"
+alias k="kiro-cli --v3"
+# alias kiro="kiro-wrapper"
