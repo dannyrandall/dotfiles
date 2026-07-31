@@ -15,6 +15,25 @@ end
 
 return {
 	"sindrets/diffview.nvim",
+	init = function()
+		-- :q (and :wq/ZZ/etc) in any diffview window closes the whole diffview
+		-- instead of quitting a single window, which breaks the layout. QuitPre
+		-- fires before the window closes; the scheduled close runs after, while
+		-- we're still in the diffview tab, and tears down the rest of the view.
+		vim.api.nvim_create_autocmd("QuitPre", {
+			group = vim.api.nvim_create_augroup("DiffviewQuitAll", { clear = true }),
+			callback = function()
+				local ok, lib = pcall(require, "diffview.lib")
+				if ok and lib.get_current_view() then
+					vim.schedule(function()
+						if lib.get_current_view() then
+							vim.cmd("DiffviewClose")
+						end
+					end)
+				end
+			end,
+		})
+	end,
 	opts = {
 		keymaps = {
 			view = {
