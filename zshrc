@@ -5,7 +5,10 @@ export EDITOR="nvim"
 export PATH=$PATH:$HOME/bin # manually installed
 export PATH=$PATH:$HOME/.local/bin # should probably use instead of $HOME/bin
 export PATH=$PATH:$HOME/go/bin # golang
+export PATH="$PATH:$HOME/.bun/bin" # bun
 . "$HOME/.cargo/env" # rust
+
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun" # bun completions
 
 if [[ $OSTYPE == darwin* ]]; then # mac stuff
   eval "$(/opt/homebrew/bin/brew shellenv)"

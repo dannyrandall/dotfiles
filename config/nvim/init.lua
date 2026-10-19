@@ -32,6 +32,7 @@ vim.opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
 vim.opt.foldnestmax = 4
 vim.opt.foldlevelstart = 99
 
+-- filetypes with no folding-capable language server fold via treesitter instead
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "markdown",
 	callback = function()

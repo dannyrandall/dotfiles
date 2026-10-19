@@ -36,10 +36,11 @@ that runtime's default version.
 | [`jsonls`](https://github.com/hrsh7th/vscode-langservers-extracted) | json | `npm i -g vscode-langservers-extracted` |
 | [`ty`](https://github.com/astral-sh/ty) | python | `uv tool install ty@latest` |
 | [`marksman`](https://github.com/artempyanykh/marksman) | markdown | `brew install marksman` |
+| [`yamlls`](https://github.com/redhat-developer/yaml-language-server) | yaml | `npm i -g yaml-language-server` |
 
 Or all at once:
 ```sh
-npm i -g @vtsls/language-server typescript vscode-langservers-extracted
+npm i -g @vtsls/language-server typescript vscode-langservers-extracted yaml-language-server
 uv tool install ty@latest
 brew install marksman
 ```
