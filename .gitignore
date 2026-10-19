@@ -10,3 +10,8 @@
 config/nvim/lazy-lock.json
 config/nvim/lazyvim.json
 config/tmux/plugins/
+
+/config/herdr/*
+!/config/herdr/config.toml
+/config/homebrew/
+/config/iterm2/AppSupport

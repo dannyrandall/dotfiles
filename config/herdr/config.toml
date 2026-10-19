@@ -1,0 +1,23 @@
+onboarding = false
+
+[keys]
+detach = "prefix+d"
+rename_tab = "prefix+comma"
+goto = "prefix+w"
+workspace_picker = "prefix+g"
+split_horizontal = "prefix+v"
+split_vertical = "prefix+s"
+settings = "prefix+shift+s"
+
+[theme]
+name = "catppuccin"
+light_name = "catppuccin-latte"
+dark_name = "catppuccin"
+auto_switch = true
+
+[ui]
+status_indicators = "symbols"
+agent_panel_sort = "priority"
+
+[ui.toast]
+delivery = "system"
